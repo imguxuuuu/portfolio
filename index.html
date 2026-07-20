@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gururaghuraman Sethuraman — Embedded Systems | EV Powertrain | Nanotechnology</title>
+  <meta name="description" content="Embedded Systems & Electrical Engineer with 2 IEEE publications, Erasmus Scholar at Grenoble-INP Phelma, and industry experience at Robert Bosch & Schneider Electric." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">GS</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="assets/resume.pdf" download class="btn-resume">
+        <i class="fas fa-download"></i> Resume
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Embedded Systems · Nanotechnology · EV Powertrain</p>
+      <h1 class="hero-name">Gururaghuraman<br/>Sethuraman</h1>
+      <div class="hero-roles">
+        <span class="role-prefix">I'm a&nbsp;</span>
+        <span id="typed-role" class="typed-role"></span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="hero-sub">
+        2× IEEE Published Researcher &bull; Erasmus Scholar @ Grenoble-INP Phelma &bull;
+        Ex-Robert Bosch &bull; B.Tech EEE, Amrita Vishwa Vidyapeetham
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="#experience" class="btn-outline">View Experience</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/imguxuuuu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:s.gururaghuraman@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="scroll-bar"><div class="scroll-fill"></div></div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
+        <div class="about-photo-wrap">
+          <img src="assets/profile.jpg" alt="Gururaghuraman Sethuraman" class="about-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="about-photo-placeholder"><i class="fas fa-user"></i></div>
+          <div class="photo-glow"></div>
+        </div>
+        <div class="about-text">
+          <p>
+            I am a <strong>published Embedded Systems &amp; Electrical Engineer</strong> with a B.Tech in Electrical &amp; Electronics
+            Engineering from <strong>Amrita Vishwa Vidyapeetham</strong> and an <strong>Erasmus Exchange Scholarship</strong> in
+            Nanotechnology at <strong>Grenoble-INP Phelma</strong>, France — one of Europe's leading engineering institutes for
+            semiconductor science and microsystems.
+          </p>
+          <p>
+            I have authored <strong>2 peer-reviewed IEEE publications</strong> on demagnetization fault detection in
+            Interior Permanent Magnet Synchronous Motors (IPMSM), fusing Finite Element Analysis with Machine Learning — directly
+            applicable to next-generation EV drivetrains. My industrial track record spans <strong>Robert Bosch</strong>
+            (Embedded C firmware &amp; CAN validation on live HV testbeds), <strong>Schneider Electric</strong>,
+            and <strong>Igarashi Motors</strong>.
+          </p>
+          <p>
+            I am actively targeting roles in <strong>Embedded Systems, Motor Control, Automotive Electronics,</strong> and
+            <strong>EV Powertrain Engineering</strong> where rigorous engineering, research depth, and hands-on execution converge.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">2×</span>
+              <span class="stat-label">IEEE Publications</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5+</span>
+              <span class="stat-label">Industry Roles</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">Grenoble</span>
+              <span class="stat-label">Erasmus Scholar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROFESSIONAL EXPERIENCE ── -->
+  <section id="experience" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Professional <span class="accent">Experience</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-badge current">Current</div>
+                <h3>Database Architect &amp; Python Developer</h3>
+                <h4><i class="fas fa-building"></i> AInsurCo &nbsp;·&nbsp; Remote — London, UK</h4>
+                <p class="edu-date"><i class="fas fa-calendar-alt"></i> Aug 2025 – Present</p>
+              </div>
+            </div>
+            <ul class="exp-list">
+              <li>Architected and maintained <strong>10+ relational database schemas</strong> supporting core insurance data operations, applying advanced normalisation, indexing, and constraint strategies for production-grade reliability.</li>
+              <li>Authored and optimised <strong>30+ SQL queries and stored procedures</strong> for reporting, validation, and data-retrieval pipelines across the platform.</li>
+              <li>Resolved <strong>15+ data-integrity and schema-consistency issues</strong> through constraint enforcement and automated validation, significantly reducing downstream data errors.</li>
+              <li>Engineered <strong>5+ Python batch automation scripts</strong> for scheduled data-processing tasks, reducing manual intervention and improving pipeline throughput.</li>
+            </ul>
+            <div class="edu-tags">
+              <span>SQL</span><span>Python</span><span>Database Architecture</span><span>Schema Design</span><span>Stored Procedures</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-badge bosch">Robert Bosch</div>
+                <h3>Embedded Hardware Intern</h3>
+                <h4><i class="fas fa-building"></i> Robert Bosch Limited &nbsp;·&nbsp; Bangalore, India</h4>
+                <p class="edu-date"><i class="fas fa-calendar-alt"></i> June 2024 – July 2024</p>
+              </div>
+            </div>
+            <ul class="exp-list">
+              <li>Developed and validated <strong>5+ Embedded C firmware modules</strong> implementing CAN communication layers for EV benchmarking infrastructure and Vehicle Control Unit (VCU) interfaces.</li>
+              <li>Analysed <strong>100+ CAN frames</strong> using CANalyzer — performing DLC verification, error-state capture, and fault-injection analysis across <strong>3+ live High-Voltage (HV) testbeds</strong>.</li>
+              <li>Contributed to technical evaluation of E-axle architecture across 2 HV subsystem configurations, documenting integration behaviour per internal test protocols.</li>
+            </ul>
+            <div class="edu-tags">
+              <span>Embedded C</span><span>CAN Bus</span><span>CANalyzer</span><span>HV Testbed</span><span>VCU</span><span>E-Axle</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Supply Chain Intern — Electronics Division</h3>
+            <h4><i class="fas fa-building"></i> Schneider Electric &nbsp;·&nbsp; Chennai, India</h4>
+            <p class="edu-date"><i class="fas fa-calendar-alt"></i> July 2023</p>
+            <ul class="exp-list">
+              <li>Validated <strong>150+ PCB components</strong> across power-electronics manufacturing lines against design specifications, identifying and flagging non-conformances.</li>
+              <li>Analysed component lifecycle and supply dependencies for <strong>8+ critical converter subsystems</strong>, supporting procurement risk assessment and mitigation planning.</li>
+            </ul>
+            <div class="edu-tags">
+              <span>PCB Inspection</span><span>Power Electronics</span><span>Supply Chain</span><span>Component Validation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Manufacturing &amp; Quality Intern</h3>
+            <h4><i class="fas fa-building"></i> Igarashi Motor Pvt Ltd &nbsp;·&nbsp; Chennai, India</h4>
+            <p class="edu-date"><i class="fas fa-calendar-alt"></i> Feb. 2023</p>
+            <ul class="exp-list">
+              <li>Audited motor assembly workflows across <strong>3+ production stations</strong>, identifying redundant checkpoints and contributing to an estimated <strong>10–15% reduction</strong> in inspection cycle time.</li>
+              <li>Reviewed and improved BOM accuracy for <strong>20+ line items</strong>, strengthening defect-traceability documentation for small-motor production.</li>
+            </ul>
+            <div class="edu-tags">
+              <span>Motor Assembly</span><span>BOM</span><span>Quality Audit</span><span>Defect Traceability</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Quality Intern — Electronics Assembly</h3>
+            <h4><i class="fas fa-building"></i> Sri Balaji Assembles &amp; Plastics India Pvt Ltd &nbsp;·&nbsp; Chennai, India</h4>
+            <p class="edu-date"><i class="fas fa-calendar-alt"></i> July 2022 – Aug. 2022</p>
+            <ul class="exp-list">
+              <li>Supported IPC/ISO-compliant quality control checks across <strong>50+ electronic sub-assembly units</strong>.</li>
+              <li>Collaborated with production teams to isolate component-level defects across <strong>10+ assembly batches</strong>, reducing rework cycles and improving first-pass yield.</li>
+            </ul>
+            <div class="edu-tags">
+              <span>IPC Standards</span><span>ISO QC</span><span>Electronics Assembly</span><span>Defect Analysis</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Edu<span class="accent">cation</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="edu-icon"><i class="fas fa-atom"></i></div>
+            <div class="edu-badge erasmus">Erasmus Scholarship</div>
+            <h3>Exchange Programme — Nanotechnology</h3>
+            <h4>Grenoble-INP Phelma &nbsp;·&nbsp; Grenoble, France</h4>
+            <p class="edu-date"><i class="fas fa-calendar-alt"></i> Jan. 2025 – June 2025</p>
+            <p>
+              Selected for the prestigious Erasmus Exchange Scholarship at one of Europe's foremost institutions for
+              semiconductor science and microsystems engineering. Immersed in cutting-edge nanofabrication research with
+              access to state-of-the-art cleanroom facilities at PTA (Plateforme Technologique Amont).
+            </p>
+            <div class="edu-tags">
+              <span>Advanced CMOS</span><span>Microsystems</span><span>Advanced VLSI</span>
+              <span>Spintronics</span><span>Semiconductor Physics</span><span>Nanoelectronics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="edu-icon"><i class="fas fa-microchip"></i></div>
+            <h3>Bachelor of Technology — Electrical &amp; Electronics Engineering</h3>
+            <h4>Amrita Vishwa Vidyapeetham &nbsp;·&nbsp; Coimbatore, India</h4>
+            <p class="edu-date"><i class="fas fa-calendar-alt"></i> Apr. 2021 – May 2025</p>
+            <p>
+              Comprehensive B.Tech programme with specialisation tracks in embedded systems, power electronics, and electric drives.
+              Produced 2 IEEE-published research papers during the degree — a distinction held by a very small proportion of undergraduates globally.
+            </p>
+            <div class="edu-tags">
+              <span>Embedded Systems</span><span>Microprocessors &amp; Microcontrollers</span><span>Power Electronics</span>
+              <span>Control Systems</span><span>Electric Drives</span><span>Simulation &amp; Modelling</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section id="publications" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">IEEE <span class="accent">Publications</span></h2>
+      <p class="section-sub">Peer-reviewed research combining Finite Element Analysis with Machine Learning for EV motor fault diagnostics.</p>
+      <div class="pub-grid">
+
+        <div class="pub-card reveal">
+          <div class="pub-badge">IEEE CONECCT</div>
+          <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Demagnetization in V-shaped IPMSM: A Fusion of Finite Element Analysis and Machine Learning</h3>
+          <p>
+            Presents a novel hybrid diagnostic framework combining high-fidelity FEM simulation with supervised ML models
+            for early-stage detection of permanent-magnet demagnetization in V-shaped IPMSM configurations critical to
+            modern electric vehicle drivetrains.
+          </p>
+          <div class="pub-meta">
+            <span><i class="fas fa-calendar-alt"></i> June 2025</span>
+            <span><i class="fas fa-award"></i> IEEE CONECCT 2025</span>
+          </div>
+        </div>
+
+        <div class="pub-card reveal">
+          <div class="pub-badge">ICPERS</div>
+          <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Machine Learning-based Analysis on Non-uniform Demagnetization Fault in IPMSM Using FEM</h3>
+          <p>
+            Investigates non-uniform demagnetization fault patterns in IPMSM using FEM-generated datasets, applying
+            machine learning classifiers to achieve robust fault-severity discrimination — enabling predictive
+            maintenance capabilities for EV powertrain systems.
+          </p>
+          <div class="pub-meta">
+            <span><i class="fas fa-calendar-alt"></i> May 2025</span>
+            <span><i class="fas fa-award"></i> ICPERS 2025</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Tech <span class="accent">Skills</span></h2>
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-tags">
+            <span>C</span><span>Embedded C</span><span>Verilog HDL</span>
+            <span>Python</span><span>SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-microchip"></i> MCUs &amp; Platforms</h3>
+          <div class="skill-tags">
+            <span>STM32</span><span>dsPIC</span><span>ESP32</span>
+            <span>Arduino</span><span>Raspberry Pi 4</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-network-wired"></i> Protocols</h3>
+          <div class="skill-tags">
+            <span>CAN Bus</span><span>UART</span><span>SPI</span><span>I2C</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-car-battery"></i> Automotive &amp; EV</h3>
+          <div class="skill-tags">
+            <span>CANalyzer</span><span>CANoe</span><span>EV Benchmarking</span>
+            <span>VCU Interface</span><span>HV Testbed</span><span>E-Axle</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-bolt"></i> Motor Control &amp; Power</h3>
+          <div class="skill-tags">
+            <span>IPMSM Diagnostics</span><span>Motor Control</span><span>Inverter Subsystems</span>
+            <span>HV Architecture</span><span>Power Electronics</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-flask"></i> EDA &amp; Simulation</h3>
+          <div class="skill-tags">
+            <span>MATLAB/Simulink</span><span>ANSYS Motor-CAD</span><span>Vivado</span>
+            <span>Multisim</span><span>ETAP</span><span>AutoCAD</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-database"></i> Database &amp; Data Systems</h3>
+          <div class="skill-tags">
+            <span>Relational DB Design</span><span>Schema Architecture</span>
+            <span>Query Optimisation</span><span>Batch Processing</span><span>Data Integrity</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3><i class="fas fa-tools"></i> Dev Tools</h3>
+          <div class="skill-tags">
+            <span>Git</span><span>Docker</span><span>CI/CD</span><span>MPLAB X</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Languages spoken -->
+      <div class="lang-row reveal">
+        <h3 class="lang-title"><i class="fas fa-globe"></i> Languages Spoken</h3>
+        <div class="lang-tags">
+          <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">C1 · IELTS 7.0</span></div>
+          <div class="lang-item"><span class="lang-name">Tamil</span><span class="lang-level">C2 · Native</span></div>
+          <div class="lang-item"><span class="lang-name">Telugu</span><span class="lang-level">C2 · Native</span></div>
+          <div class="lang-item"><span class="lang-name">Deutsch</span><span class="lang-level">A1 · Goethe</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Pro<span class="accent">jects</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-icon"><i class="fas fa-brain"></i></div>
+          <h3>IPMSM Demagnetization Fault Prediction via ML</h3>
+          <p>Trained and evaluated ML models across <strong>10+ fault-severity classes</strong> using FEM-simulated datasets (ANSYS Motor-CAD) for early-stage detection of permanent-magnet demagnetization in EV-class IPMSM units, enabling predictive fault-monitoring for electric drivetrains.</p>
+          <div class="project-tags"><span>ANSYS Motor-CAD</span><span>Python</span><span>Machine Learning</span><span>FEA</span></div>
+          <div class="project-links">
+            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <span class="proj-date">Apr. 2025</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-icon"><i class="fas fa-battery-three-quarters"></i></div>
+          <h3>SOH Prediction for LiFePO₄ Batteries via ML</h3>
+          <p>Built a regression pipeline trained on battery cycling data across <strong>50+ charge/discharge cycles</strong> on Raspberry Pi 4, predicting State of Health (SOH) to provide lifecycle decision support for EV battery management systems.</p>
+          <div class="project-tags"><span>Raspberry Pi 4</span><span>Python</span><span>ML Regression</span><span>BMS</span></div>
+          <div class="project-links">
+            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <span class="proj-date">June 2024</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-icon"><i class="fas fa-microchip"></i></div>
+          <h3>32-bit RISC Processor Subsystem Study</h3>
+          <p>Designed and implemented <strong>3 core subsystems</strong> (ALU, data memory, register file) in Verilog HDL on Vivado, synthesised and validated across multiple FPGA configurations for timing and resource-utilisation benchmarking.</p>
+          <div class="project-tags"><span>Verilog HDL</span><span>Vivado</span><span>FPGA</span><span>RISC Architecture</span></div>
+          <div class="project-links">
+            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <span class="proj-date">Jan. 2025</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-icon"><i class="fas fa-atom"></i></div>
+          <h3>MTJ-based Stochastic Random Number Generator</h3>
+          <p>Developed and tested a stochastic solver for Magnetic Tunnel Junction (MTJ)-based random number generation across <strong>25+ simulation trials</strong>, targeting low-power spintronic embedded applications.</p>
+          <div class="project-tags"><span>Python</span><span>Spintronics</span><span>MTJ</span><span>Stochastic Modelling</span></div>
+          <div class="project-links">
+            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <span class="proj-date">May 2025</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATES ── -->
+  <section id="certificates" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Certifi<span class="accent">cates</span></h2>
+      <div class="cert-grid">
+        <!-- Add your certificates: place image files in assets/cert-1.jpg etc. -->
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <img src="assets/cert-1.jpg" alt="Certificate 1" onerror="this.src=''" />
+            <div class="cert-overlay"><i class="fas fa-certificate"></i></div>
+          </div>
+          <div class="cert-info">
+            <h3>Certificate Name</h3>
+            <p>Issuing Organisation</p>
+            <span class="cert-date">Month Year</span>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <img src="assets/cert-2.jpg" alt="Certificate 2" onerror="this.src=''" />
+            <div class="cert-overlay"><i class="fas fa-certificate"></i></div>
+          </div>
+          <div class="cert-info">
+            <h3>Certificate Name</h3>
+            <p>Issuing Organisation</p>
+            <span class="cert-date">Month Year</span>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <div class="cert-overlay visible"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="cert-info">
+            <h3>Add Your Certificate</h3>
+            <p>Drop cert-3.jpg in assets/</p>
+            <span class="cert-date">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section reveal">
+    <div class="container contact-container">
+      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+      <p class="contact-sub">
+        I am actively seeking roles in <strong>Embedded Systems, Motor Control, Automotive Electronics,</strong>
+        and <strong>EV Powertrain Engineering</strong>. Open to full-time, contract, and research opportunities globally.
+        I typically respond within 24 hours.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:s.gururaghuraman@gmail.com" class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+          <small>s.gururaghuraman@gmail.com</small>
+        </a>
+        <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+          <small>Connect with me</small>
+        </a>
+        <a href="https://github.com/imguxuuuu" target="_blank" class="contact-card">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+          <small>imguxuuuu</small>
+        </a>
+        <a href="assets/resume.pdf" download class="contact-card highlight">
+          <i class="fas fa-file-pdf"></i>
+          <span>Download Resume</span>
+          <small>PDF · 2025</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>
+      Designed &amp; built by <span class="accent">Gururaghuraman Sethuraman</span> &bull;
+      Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+DROP YOUR FILES INTO THIS FOLDER:
+-----------------------------------
+resume.pdf      → your CV (linked in the Resume button and Contact section)
+profile.jpg     → your photo (shown in About section)
+cert-1.jpg      → certificate image 1
+cert-2.jpg      → certificate image 2
+(add more: cert-3.jpg, cert-4.jpg, etc.)
+
+Supported image formats: jpg, png, webp
