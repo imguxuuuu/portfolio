@@ -7,9 +7,13 @@
   <meta name="description" content="Embedded Systems & Electrical Engineer with 2 IEEE publications, Erasmus Scholar at Grenoble-INP Phelma, and industry experience at Robert Bosch & Schneider Electric." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Custom Cursor (desktop only) -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
   <!-- ── NAVIGATION ── -->
   <nav id="navbar">
@@ -24,7 +28,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="assets/resume.pdf" download class="btn-resume">
+      <a href="assets/resume.pdf" download class="btn-resume" data-magnetic>
         <i class="fas fa-download"></i> Resume
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -49,8 +53,8 @@
         Ex-Robert Bosch &bull; B.Tech EEE, Amrita Vishwa Vidyapeetham
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Get In Touch</a>
-        <a href="#experience" class="btn-outline">View Experience</a>
+        <a href="#contact" class="btn-primary" data-magnetic>Get In Touch</a>
+        <a href="#experience" class="btn-outline" data-magnetic>View Experience</a>
       </div>
       <div class="hero-socials">
         <a href="https://github.com/imguxuuuu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -90,15 +94,15 @@
             <strong>EV Powertrain Engineering</strong> where rigorous engineering, research depth, and hands-on execution converge.
           </p>
           <div class="about-stats">
-            <div class="stat">
+            <div class="stat reveal">
               <span class="stat-num">2×</span>
               <span class="stat-label">IEEE Publications</span>
             </div>
-            <div class="stat">
+            <div class="stat reveal">
               <span class="stat-num">5+</span>
               <span class="stat-label">Industry Roles</span>
             </div>
-            <div class="stat">
+            <div class="stat reveal">
               <span class="stat-num">Grenoble</span>
               <span class="stat-label">Erasmus Scholar</span>
             </div>
@@ -266,7 +270,7 @@
       <p class="section-sub">Peer-reviewed research combining Finite Element Analysis with Machine Learning for EV motor fault diagnostics.</p>
       <div class="pub-grid">
 
-        <div class="pub-card reveal">
+        <div class="pub-card tilt-card reveal">
           <div class="pub-badge">IEEE CONECCT</div>
           <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
           <h3>Demagnetization in V-shaped IPMSM: A Fusion of Finite Element Analysis and Machine Learning</h3>
@@ -281,7 +285,7 @@
           </div>
         </div>
 
-        <div class="pub-card reveal">
+        <div class="pub-card tilt-card reveal">
           <div class="pub-badge">ICPERS</div>
           <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
           <h3>Machine Learning-based Analysis on Non-uniform Demagnetization Fault in IPMSM Using FEM</h3>
@@ -389,7 +393,7 @@
       <h2 class="section-title">Pro<span class="accent">jects</span></h2>
       <div class="projects-grid">
 
-        <div class="project-card reveal">
+        <div class="project-card tilt-card reveal">
           <div class="project-icon"><i class="fas fa-brain"></i></div>
           <h3>IPMSM Demagnetization Fault Prediction via ML</h3>
           <p>Trained and evaluated ML models across <strong>10+ fault-severity classes</strong> using FEM-simulated datasets (ANSYS Motor-CAD) for early-stage detection of permanent-magnet demagnetization in EV-class IPMSM units, enabling predictive fault-monitoring for electric drivetrains.</p>
@@ -400,7 +404,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal">
+        <div class="project-card tilt-card reveal">
           <div class="project-icon"><i class="fas fa-battery-three-quarters"></i></div>
           <h3>SOH Prediction for LiFePO₄ Batteries via ML</h3>
           <p>Built a regression pipeline trained on battery cycling data across <strong>50+ charge/discharge cycles</strong> on Raspberry Pi 4, predicting State of Health (SOH) to provide lifecycle decision support for EV battery management systems.</p>
@@ -411,7 +415,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal">
+        <div class="project-card tilt-card reveal">
           <div class="project-icon"><i class="fas fa-microchip"></i></div>
           <h3>32-bit RISC Processor Subsystem Study</h3>
           <p>Designed and implemented <strong>3 core subsystems</strong> (ALU, data memory, register file) in Verilog HDL on Vivado, synthesised and validated across multiple FPGA configurations for timing and resource-utilisation benchmarking.</p>
@@ -422,7 +426,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal">
+        <div class="project-card tilt-card reveal">
           <div class="project-icon"><i class="fas fa-atom"></i></div>
           <h3>MTJ-based Stochastic Random Number Generator</h3>
           <p>Developed and tested a stochastic solver for Magnetic Tunnel Junction (MTJ)-based random number generation across <strong>25+ simulation trials</strong>, targeting low-power spintronic embedded applications.</p>
@@ -436,48 +440,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ── CERTIFICATES (commented out — add cert-1.jpg etc. to assets/ when ready, then uncomment) ──
-  <section id="certificates" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Certifi<span class="accent">cates</span></h2>
-      <div class="cert-grid">
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assets/cert-1.jpg" alt="Certificate 1" onerror="this.src=''" />
-            <div class="cert-overlay"><i class="fas fa-certificate"></i></div>
-          </div>
-          <div class="cert-info">
-            <h3>Certificate Name</h3>
-            <p>Issuing Organisation</p>
-            <span class="cert-date">Month Year</span>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assets/cert-2.jpg" alt="Certificate 2" onerror="this.src=''" />
-            <div class="cert-overlay"><i class="fas fa-certificate"></i></div>
-          </div>
-          <div class="cert-info">
-            <h3>Certificate Name</h3>
-            <p>Issuing Organisation</p>
-            <span class="cert-date">Month Year</span>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <div class="cert-overlay visible"><i class="fas fa-plus"></i></div>
-          </div>
-          <div class="cert-info">
-            <h3>Add Your Certificate</h3>
-            <p>Drop cert-3.jpg in assets/</p>
-            <span class="cert-date">—</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  ──>
 
   <!-- ── CONTACT ── -->
   <section id="contact" class="section reveal">
@@ -521,6 +483,10 @@
     </p>
   </footer>
 
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
