@@ -186,9 +186,9 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 /* ── 5. TYPING ANIMATION ── */
 const roles = [
   'Embedded Systems Engineer',
-  'EV Powertrain Specialist',
+  'PCB Design Engineer',
   'Nanotechnology Researcher',
-  'Motor Control Engineer',
+  'Hardware Design Engineer',
   'IEEE Published Researcher',
 ];
 let rIdx = 0, cIdx = 0, deleting = false;

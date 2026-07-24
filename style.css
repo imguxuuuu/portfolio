@@ -1029,3 +1029,11 @@ footer .accent { color: var(--accent); -webkit-text-fill-color: var(--accent); }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   PCB DESIGN PROJECT
+   ══════════════════════════════════════════════════════════ */
+
+/* The PCB project card uses the existing .project-card styles.
+   No additional CSS needed — fully consistent with the design system. */
+
