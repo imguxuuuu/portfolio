@@ -502,6 +502,8 @@ body.cursor-hover #cursor-ring {
 .about-photo-wrap:hover { transform: translateY(-4px); }
 .about-photo {
   width: 100%;
+  height: auto;
+  aspect-ratio: 1;
   border-radius: 20px;
   border: 1px solid var(--border);
   box-shadow: 0 24px 64px rgba(0,0,0,0.55),
@@ -1565,7 +1567,7 @@ footer .accent { color: var(--accent); -webkit-text-fill-color: var(--accent); }
   .nav-toggle            { display: block; }
   .btn-resume            { display: none; }
   .about-grid            { grid-template-columns: 1fr; }
-  .about-photo-wrap      { max-width: 160px; }
+  .about-photo-wrap      { max-width: 180px; margin: 0 auto; }
   .contact-links         { flex-direction: column; align-items: center; }
   .contact-card          { width: 100%; max-width: 280px; }
   .hero-content          { padding-top: 100px; }
