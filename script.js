@@ -371,9 +371,9 @@ document.querySelectorAll('.tilt-card').forEach(card => {
     requestAnimationFrame(() => {
       const sy = window.scrollY;
       if (sy < window.innerHeight * 1.2) {
-        content.style.transform = `translateY(${sy * 0.28}px)`;
-        content.style.opacity   = String(Math.max(0, 1 - sy / (window.innerHeight * 0.55)));
-        cnv.style.transform     = `translateY(${sy * 0.14}px)`;
+        content.style.transform = `translateY(${sy * 0.2}px)`;
+        content.style.opacity   = String(Math.max(0, 1 - Math.max(0, sy - window.innerHeight * 0.7) / (window.innerHeight * 0.4)));
+        cnv.style.transform     = `translateY(${sy * 0.1}px)`;
       }
       ticking = false;
     });
