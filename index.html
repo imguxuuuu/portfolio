@@ -5,11 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gururaghuraman Sethuraman — Embedded Systems | EV Powertrain | Nanotechnology</title>
   <meta name="description" content="Embedded Systems & Electrical Engineer with 2 IEEE publications, Erasmus Scholar at Grenoble-INP Phelma, and industry experience at Robert Bosch & Schneider Electric." />
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="https://imguxuuuu.github.io/portfolio/" />
+  <meta property="og:title"        content="Gururaghuraman Sethuraman — Embedded Systems | EV Powertrain | Nanotechnology" />
+  <meta property="og:description"  content="Embedded Systems & Electrical Engineer with 2 IEEE publications, Erasmus Scholar at Grenoble-INP Phelma, and industry experience at Robert Bosch & Schneider Electric." />
+  <meta property="og:image"        content="https://imguxuuuu.github.io/portfolio/assets/profile.jpg" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Gururaghuraman Sethuraman — Embedded Systems | EV Powertrain" />
+  <meta name="twitter:description" content="2× IEEE Published Researcher · Erasmus Scholar · Ex-Robert Bosch · Embedded Systems & EV Powertrain Engineer" />
+  <meta name="twitter:image"       content="https://imguxuuuu.github.io/portfolio/assets/profile.jpg" />
+  <!-- Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32"  href="assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16"  href="assets/favicon.png" />
+  <link rel="apple-touch-icon"      sizes="180x180" href="assets/favicon.png" />
+  <meta name="theme-color" content="#050505" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Skip to content (keyboard nav) -->
+  <a href="#hero" class="skip-link">Skip to content</a>
+
+  <!-- Reading progress bar -->
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ── PAGE LOADER ── -->
+  <div id="loader" aria-hidden="true">
+    <img src="assets/favicon.png" alt="" class="loader-logo" />
+  </div>
 
   <!-- Custom Cursor (desktop only) -->
   <div id="cursor-dot"></div>
@@ -18,7 +47,9 @@
   <!-- ── NAVIGATION ── -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a class="nav-logo" href="#hero">GS</a>
+      <a class="nav-logo" href="#hero">
+        <img src="assets/favicon.png" alt="GS" class="nav-logo-img" />
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -41,6 +72,7 @@
   <section id="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
+      <img src="assets/favicon.png" alt="GS" class="hero-logo" />
       <p class="hero-eyebrow">Embedded Systems · PCB Design · Nanotechnology</p>
       <h1 class="hero-name">Gururaghuraman<br/>Sethuraman</h1>
       <div class="hero-roles">
@@ -71,7 +103,7 @@
       <h2 class="section-title">About <span class="accent">Me</span></h2>
       <div class="about-grid">
         <div class="about-photo-wrap">
-          <img src="assets/profile.jpg" alt="Gururaghuraman Sethuraman" class="about-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <img src="assets/profile.jpg" alt="Gururaghuraman Sethuraman" class="about-photo" width="220" height="220" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
           <div class="about-photo-placeholder"><i class="fas fa-user"></i></div>
           <div class="photo-glow"></div>
         </div>
@@ -283,6 +315,11 @@
             <span><i class="fas fa-calendar-alt"></i> June 2025</span>
             <span><i class="fas fa-award"></i> IEEE CONECCT 2025</span>
           </div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/11306357" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> View on IEEE Xplore
+            </a>
+          </div>
         </div>
 
         <div class="pub-card tilt-card reveal">
@@ -297,6 +334,9 @@
           <div class="pub-meta">
             <span><i class="fas fa-calendar-alt"></i> May 2025</span>
             <span><i class="fas fa-award"></i> ICPERS 2025</span>
+          </div>
+          <div class="pub-links">
+            <span class="pub-pending"><i class="fas fa-clock"></i> Pending Publication</span>
           </div>
         </div>
 
@@ -412,7 +452,7 @@
           <p>Designed and developed a manufacturing-ready <strong>2-layer PCB</strong> for a single-cell Li-Ion battery featuring reverse-current protection via Schottky diode, <strong>500 mA resettable polyfuse</strong>, battery voltage monitoring via 100kΩ/100kΩ voltage divider for ADC output, and copper ground pour. DRC passed with <strong>zero errors</strong>. Full Gerber, BOM, and LTspice simulation included.</p>
           <div class="project-tags"><span>KiCad 9</span><span>LTspice</span><span>PCB Design</span><span>Power Electronics</span><span>Hardware</span></div>
           <div class="project-links">
-            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/imguxuuuu/Battery-Protection-PCB" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             <span class="proj-date">Personal Project</span>
           </div>
         </div>
@@ -423,7 +463,7 @@
           <p>Trained and evaluated ML models across <strong>10+ fault-severity classes</strong> using FEM-simulated datasets (ANSYS Motor-CAD) for early-stage detection of permanent-magnet demagnetization in EV-class IPMSM units, enabling predictive fault-monitoring for electric drivetrains.</p>
           <div class="project-tags"><span>ANSYS Motor-CAD</span><span>Python</span><span>Machine Learning</span><span>FEA</span></div>
           <div class="project-links">
-            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/imguxuuuu/demag_predict_IPMSM" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             <span class="proj-date">Apr. 2025</span>
           </div>
         </div>
@@ -501,11 +541,16 @@
 
   <!-- ── FOOTER ── -->
   <footer>
+    <img src="assets/favicon.png" alt="GS" class="footer-logo" />
     <p>
       Designed &amp; built by <span class="accent">Gururaghuraman Sethuraman</span> &bull;
       Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
     </p>
   </footer>
+
+  <!-- Libraries -->
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
   <!-- Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

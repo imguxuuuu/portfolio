@@ -2,6 +2,13 @@
    PORTFOLIO SCRIPT — Dark Luxury Edition
    =================================================== */
 
+/* ── LOADER ── */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+  setTimeout(() => loader.classList.add('hidden'), 600);
+});
+
 /* ── 0. SMOOTH SCROLL (Lenis) ── */
 let lenis;
 if (typeof Lenis !== 'undefined') {
@@ -225,12 +232,15 @@ setTimeout(type, 1400);
   const sub      = document.querySelector('.hero-sub');
   const actions  = document.querySelector('.hero-actions');
   const socials  = document.querySelector('.hero-socials');
+  const heroLogo = document.querySelector('.hero-logo');
   const fadeEls  = [eyebrow, roles, sub, actions, socials].filter(Boolean);
 
   fadeEls.forEach(el => Object.assign(el.style, { opacity: '0', transform: 'translateY(20px)' }));
+  if (heroLogo) Object.assign(heroLogo.style, { opacity: '0', transform: 'translateY(16px)' });
 
   if (typeof gsap !== 'undefined') {
-    const tl = gsap.timeline({ delay: 0.15 });
+    const tl = gsap.timeline({ delay: 1.3 });
+    if (heroLogo) tl.to(heroLogo, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0);
     tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0)
       .to(words,   { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.75, stagger: 0.09, ease: 'power3.out' }, 0.12)
       .to(roles,   { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.6)
@@ -244,8 +254,9 @@ setTimeout(type, 1400);
         el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none';
       }, delay);
     };
-    words.forEach((w, i) => animate(w, 300 + i * 90));
-    fadeEls.forEach((el, i) => animate(el, 900 + i * 100));
+    if (heroLogo) animate(heroLogo, 1300);
+    words.forEach((w, i) => animate(w, 1400 + i * 90));
+    fadeEls.forEach((el, i) => animate(el, 2000 + i * 100));
   }
 })();
 
@@ -380,3 +391,89 @@ document.querySelectorAll('.section-title').forEach(title => {
   if (parent && getComputedStyle(parent).position === 'static') parent.style.position = 'relative';
   title.insertAdjacentElement('beforebegin', glow);
 });
+
+/* ── 13. READING PROGRESS BAR ── */
+(function () {
+  const bar = document.getElementById('progress-bar');
+  if (!bar) return;
+  function updateBar() {
+    const scrolled = window.scrollY;
+    const total    = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+  }
+  window.addEventListener('scroll', updateBar, { passive: true });
+  updateBar();
+})();
+
+/* ── 14. BACK TO TOP ── */
+(function () {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    if (lenis) { lenis.scrollTo(0, { duration: 1.2 }); }
+    else { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  });
+})();
+
+/* ── 15. SECTION NUMBERS ── */
+(function () {
+  const labels = ['01', '02', '03', '04', '05', '06', '07'];
+  document.querySelectorAll('.section-title').forEach((title, i) => {
+    if (labels[i] === undefined) return;
+    const num = document.createElement('span');
+    num.className   = 'section-number';
+    num.textContent = labels[i];
+    title.insertAdjacentElement('beforebegin', num);
+  });
+})();
+
+/* ── 16. CURSOR COLOUR SHIFT PER SECTION ── */
+(function () {
+  const isTouch = !window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (isTouch) return;
+  const dot  = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+
+  const palette = {
+    hero:         '#94b8ff',
+    about:        '#94b8ff',
+    experience:   '#7dd3a8',   /* green tint */
+    education:    '#c4b0ff',   /* purple */
+    publications: '#f4a261',   /* amber */
+    skills:       '#94b8ff',
+    projects:     '#60c8f5',   /* cyan */
+    contact:      '#c4b0ff',
+  };
+
+  const style = document.createElement('style');
+  document.head.appendChild(style);
+
+  function setColor(color) {
+    style.textContent = `
+      #cursor-dot  { background: ${color} !important; }
+      #cursor-ring { border-color: ${color} !important; }
+    `;
+  }
+  setColor(palette.hero);
+
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        setColor(palette[id] || palette.hero);
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' })
+  .observe
+  && document.querySelectorAll('section[id]').forEach(s => {
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) setColor(palette[e.target.id] || palette.hero);
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' }).observe(s);
+  });
+})();
