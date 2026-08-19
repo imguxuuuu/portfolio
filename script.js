@@ -192,10 +192,10 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
 /* ── 5. TYPING ANIMATION ── */
 const roles = [
-  'Embedded Systems Engineer',
-  'PCB Design Engineer',
-  'Nanotechnology Researcher',
-  'Hardware Design Engineer',
+  'Electrical & Electronics Engineer',
+  'Semiconductor Devices Researcher',
+  'Nanoelectronics & Device Physics',
+  'Hardware & Embedded Engineer',
   'IEEE Published Researcher',
 ];
 let rIdx = 0, cIdx = 0, deleting = false;
@@ -218,7 +218,6 @@ setTimeout(type, 1400);
   const heroName = document.querySelector('.hero-name');
   if (!heroName) return;
 
-  /* split name into animated word spans */
   const parts = heroName.innerHTML.split('<br>');
   heroName.innerHTML = parts.map(part =>
     part.trim().split(/\s+/)
@@ -228,12 +227,13 @@ setTimeout(type, 1400);
 
   const words    = heroName.querySelectorAll('.word');
   const eyebrow  = document.querySelector('.hero-eyebrow');
-  const roles    = document.querySelector('.hero-roles');
+  const rolesEl  = document.querySelector('.hero-roles');
+  const tagline  = document.querySelector('.hero-tagline');
   const sub      = document.querySelector('.hero-sub');
   const actions  = document.querySelector('.hero-actions');
   const socials  = document.querySelector('.hero-socials');
   const heroLogo = document.querySelector('.hero-logo');
-  const fadeEls  = [eyebrow, roles, sub, actions, socials].filter(Boolean);
+  const fadeEls  = [eyebrow, rolesEl, tagline, sub, actions, socials].filter(Boolean);
 
   fadeEls.forEach(el => Object.assign(el.style, { opacity: '0', transform: 'translateY(20px)' }));
   if (heroLogo) Object.assign(heroLogo.style, { opacity: '0', transform: 'translateY(16px)' });
@@ -241,12 +241,13 @@ setTimeout(type, 1400);
   if (typeof gsap !== 'undefined') {
     const tl = gsap.timeline({ delay: 1.3 });
     if (heroLogo) tl.to(heroLogo, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0);
-    tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0)
-      .to(words,   { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.75, stagger: 0.09, ease: 'power3.out' }, 0.12)
-      .to(roles,   { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.6)
-      .to(sub,     { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.72)
-      .to(actions, { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, 0.82)
-      .to(socials, { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, 0.9);
+    tl.to(eyebrow,  { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0)
+      .to(words,    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.75, stagger: 0.09, ease: 'power3.out' }, 0.12)
+      .to(rolesEl,  { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.6)
+      .to(tagline,  { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, 0.7)
+      .to(sub,      { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, 0.78)
+      .to(actions,  { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, 0.86)
+      .to(socials,  { opacity: 1, y: 0, duration: 0.5,  ease: 'power2.out' }, 0.94);
   } else {
     const animate = (el, delay) => {
       setTimeout(() => {
@@ -420,7 +421,7 @@ document.querySelectorAll('.section-title').forEach(title => {
 
 /* ── 15. SECTION NUMBERS ── */
 (function () {
-  const labels = ['01', '02', '03', '04', '05', '06', '07'];
+  const labels = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'];
   document.querySelectorAll('.section-title').forEach((title, i) => {
     if (labels[i] === undefined) return;
     const num = document.createElement('span');
@@ -441,12 +442,16 @@ document.querySelectorAll('.section-title').forEach(title => {
   const palette = {
     hero:         '#94b8ff',
     about:        '#94b8ff',
-    experience:   '#7dd3a8',   /* green tint */
-    education:    '#c4b0ff',   /* purple */
-    publications: '#f4a261',   /* amber */
+    semiconductor:'#5ecfbe',
+    research:     '#c4b0ff',
+    experience:   '#7dd3a8',
+    education:    '#94b8ff',
+    publications: '#f4a261',
     skills:       '#94b8ff',
-    projects:     '#60c8f5',   /* cyan */
-    contact:      '#c4b0ff',
+    projects:     '#60c8f5',
+    direction:    '#c4b0ff',
+    'next-step':  '#94b8ff',
+    contact:      '#7dd3a8',
   };
 
   const style = document.createElement('style');
