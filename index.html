@@ -49,7 +49,7 @@
       <a class="nav-logo" href="#hero">
         <img src="assets/favicon.png" alt="GS" class="nav-logo-img" />
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-navigation">
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -61,8 +61,8 @@
       <a href="assets/resume.pdf" download class="btn-resume" data-magnetic>
         <i class="fas fa-download"></i> CV
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
@@ -90,8 +90,8 @@
         <a href="#contact"  class="btn-outline"  data-magnetic>Get In Touch</a>
       </div>
       <div class="hero-socials">
-        <a href="https://github.com/imguxuuuu"                  target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/gururaghuraman/"   target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/imguxuuuu"                  target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/gururaghuraman/"   target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
         <a href="mailto:s.gururaghuraman@gmail.com"             aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
@@ -676,7 +676,7 @@
           <p>Regression pipeline trained on battery cycling data across <strong>50+ charge/discharge cycles</strong> on Raspberry Pi 4, predicting State of Health (SOH) for EV battery management systems.</p>
           <div class="project-tags"><span>Raspberry Pi 4</span><span>Python</span><span>ML Regression</span><span>BMS</span></div>
           <div class="project-links">
-            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             <span class="proj-date">June 2024</span>
           </div>
         </div>
@@ -687,7 +687,7 @@
           <p>Designed <strong>3 core subsystems</strong> (ALU, data memory, register file) in Verilog HDL on Vivado, validated across multiple FPGA configurations for timing and resource-utilisation benchmarking.</p>
           <div class="project-tags"><span>Verilog HDL</span><span>Vivado</span><span>FPGA</span><span>RISC Architecture</span></div>
           <div class="project-links">
-            <a href="https://github.com/imguxuuuu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             <span class="proj-date">Jan. 2025</span>
           </div>
         </div>
@@ -789,12 +789,12 @@
           <span>Email</span>
           <small>s.gururaghuraman@gmail.com</small>
         </a>
-        <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" class="contact-card">
+        <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" rel="noopener" class="contact-card">
           <i class="fab fa-linkedin"></i>
           <span>LinkedIn</span>
           <small>Connect with me</small>
         </a>
-        <a href="https://github.com/imguxuuuu" target="_blank" class="contact-card">
+        <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener" class="contact-card">
           <i class="fab fa-github"></i>
           <span>GitHub</span>
           <small>imguxuuuu</small>
@@ -813,8 +813,13 @@
     <img src="assets/favicon.png" alt="GS" class="footer-logo" />
     <p>
       Designed &amp; built by <span class="accent">Gururaghuraman Sethuraman</span> &bull;
-      Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
+      Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
     </p>
+    <nav class="legal-links" aria-label="Legal information">
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="terms.html">Terms</a>
+    </nav>
   </footer>
 
   <!-- Back to top -->

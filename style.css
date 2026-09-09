@@ -12,7 +12,7 @@
   --card-hover:   rgba(255, 255, 255, 0.065);
   --text:         #f0f0f4;
   --text2:        rgba(240, 240, 244, 0.56);
-  --text3:        rgba(240, 240, 244, 0.28);
+  --text3:        #a8a8ae;
   --accent:       #94b8ff;
   --accent2:      #c4b0ff;
   --border:       rgba(255, 255, 255, 0.08);
@@ -1030,6 +1030,7 @@ footer::after {
 footer a { color: var(--text3); transition: color 0.2s; }
 footer a:hover { color: var(--text); }
 footer .accent { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.legal-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 12px; font-size: 12px; }
 
 /* ── CERTIFICATE (kept for future use) ── */
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
@@ -1570,6 +1571,7 @@ footer .accent { color: var(--accent); -webkit-text-fill-color: var(--accent); }
   .about-photo-wrap      { max-width: 180px; margin: 0 auto; }
   .contact-links         { flex-direction: column; align-items: center; }
   .contact-card          { width: 100%; max-width: 280px; }
+  .legal-links           { gap: 12px; }
   .hero-content          { padding-top: 100px; }
   .section               { padding: 90px 0; }
   .research-card-inner   { padding: 24px; }
@@ -1601,4 +1603,3 @@ footer .accent { color: var(--accent); -webkit-text-fill-color: var(--accent); }
 
 /* The PCB project card uses the existing .project-card styles.
    No additional CSS needed — fully consistent with the design system. */
-

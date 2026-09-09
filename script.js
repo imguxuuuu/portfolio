@@ -183,11 +183,30 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ── 4. MOBILE NAV ── */
-document.getElementById('navToggle').addEventListener('click', () => {
-  document.querySelector('.nav-links').classList.toggle('open');
+const navToggle = document.getElementById('navToggle');
+const navLinksList = document.querySelector('.nav-links');
+
+function closeNavigation() {
+  navLinksList.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.setAttribute('aria-label', 'Open navigation menu');
+}
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinksList.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
 });
+
 document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+  a.addEventListener('click', closeNavigation);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navLinksList.classList.contains('open')) {
+    closeNavigation();
+    navToggle.focus();
+  }
 });
 
 /* ── 5. TYPING ANIMATION ── */
