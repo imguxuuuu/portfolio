@@ -15,209 +15,464 @@
   <meta name="twitter:title"       content="Gururaghuraman Sethuraman — Semiconductor Devices | Nanoelectronics" />
   <meta name="twitter:description" content="2× IEEE Published Researcher · Erasmus Scholar · Grenoble-INP Phelma · Semiconductor Devices & Nanoelectronics" />
   <meta name="twitter:image"       content="https://imguxuuuu.github.io/portfolio/assets/profile.jpg" />
+  <meta name="theme-color" content="#000000" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
-  <link rel="icon" type="image/png" sizes="32x32"   href="assets/favicon.png" />
-  <link rel="icon" type="image/png" sizes="16x16"   href="assets/favicon.png" />
-  <link rel="apple-touch-icon"      sizes="180x180"  href="assets/favicon.png" />
-  <meta name="theme-color" content="#050505" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon"             type="image/png" sizes="512x512" href="assets/favicon.png" />
+  <link rel="icon"             type="image/png" sizes="32x32"   href="assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180"                   href="assets/favicon.png" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Skip link -->
   <a href="#hero" class="skip-link">Skip to content</a>
+
   <!-- Reading progress -->
   <div id="progress-bar" aria-hidden="true"></div>
+
   <!-- Loader -->
   <div id="loader" aria-hidden="true">
-    <img src="assets/favicon.png" alt="" class="loader-logo" />
+    <span class="loader-text">GS</span>
   </div>
 
   <!-- Custom Cursor -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
+  <div id="cursor" aria-hidden="true" role="presentation">
 
-  <!-- ── NAVIGATION ── -->
-  <nav id="navbar">
+    <!-- Default: large semiconductor wafer circle (~190px) -->
+    <div class="cursor-layer cursor-default">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="88" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+        <path d="M93 188.5 Q100 196 107 188.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Horizontal die grid -->
+        <line x1="20" y1="60"  x2="180" y2="60"  stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="14" y1="75"  x2="186" y2="75"  stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="11" y1="90"  x2="189" y2="90"  stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="11" y1="110" x2="189" y2="110" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="14" y1="125" x2="186" y2="125" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="20" y1="140" x2="180" y2="140" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <!-- Vertical die grid -->
+        <line x1="60"  y1="20" x2="60"  y2="180" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="75"  y1="14" x2="75"  y2="186" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="90"  y1="11" x2="90"  y2="189" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="110" y1="11" x2="110" y2="189" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="125" y1="14" x2="125" y2="186" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <line x1="140" y1="20" x2="140" y2="180" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+        <!-- Concentric rings -->
+        <circle cx="100" cy="100" r="60" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-dasharray="4,4"/>
+        <circle cx="100" cy="100" r="34" stroke="rgba(255,255,255,0.16)" stroke-width="0.8"/>
+        <!-- Crosshair -->
+        <line x1="100" y1="66" x2="100" y2="134" stroke="rgba(255,255,255,0.3)" stroke-width="0.7"/>
+        <line x1="66"  y1="100" x2="134" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="0.7"/>
+        <!-- Highlighted dies -->
+        <rect x="91" y="91" width="9" height="9" fill="rgba(255,255,255,0.2)"  stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+        <rect x="76" y="76" width="9" height="9" fill="rgba(255,255,255,0.1)"  stroke="rgba(255,255,255,0.28)" stroke-width="0.5"/>
+        <rect x="111" y="76" width="9" height="9" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.28)" stroke-width="0.5"/>
+        <rect x="76" y="111" width="9" height="9" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.28)" stroke-width="0.5"/>
+        <rect x="111" y="111" width="9" height="9" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.28)" stroke-width="0.5"/>
+        <!-- Centre dot -->
+        <circle cx="100" cy="100" r="2.5" fill="rgba(255,255,255,0.75)"/>
+      </svg>
+    </div>
+
+    <!-- Nav hover: small arrow circle (~55px) -->
+    <div class="cursor-layer cursor-arrow">
+      <span class="cursor-arrow-glyph">→</span>
+    </div>
+
+    <!-- Project hover: medium VIEW circle (~110px) -->
+    <div class="cursor-layer cursor-view">
+      <span class="cursor-view-label">VIEW<br>↗</span>
+    </div>
+
+  </div>
+
+  <!-- ─────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
     <div class="nav-inner">
-      <a class="nav-logo" href="#hero">
+      <a class="nav-logo" href="#hero" aria-label="Home">
         <img src="assets/favicon.png" alt="GS" class="nav-logo-img" />
       </a>
       <ul class="nav-links" id="primary-navigation">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"        data-cursor="nav">About</a></li>
+        <li><a href="#research"     data-cursor="nav">Research</a></li>
+        <li><a href="#experience"   data-cursor="nav">Experience</a></li>
+        <li><a href="#education"    data-cursor="nav">Education</a></li>
+        <li><a href="#publications" data-cursor="nav">Publications</a></li>
+        <li><a href="#skills"       data-cursor="nav">Skills</a></li>
+        <li><a href="#contact"      data-cursor="nav">Contact</a></li>
       </ul>
-      <a href="assets/resume.pdf" download class="btn-resume" data-magnetic>
-        <i class="fas fa-download"></i> CV
+      <a href="assets/resume.pdf" download class="btn-resume" data-magnetic data-cursor="nav">
+        <i class="fas fa-download" aria-hidden="true"></i> CV
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle"
+              aria-label="Open navigation menu"
+              aria-controls="primary-navigation"
+              aria-expanded="false">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
-  <section id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-content">
-      <img src="assets/favicon.png" alt="GS" class="hero-logo" />
-      <p class="hero-eyebrow">Semiconductor Devices &nbsp;·&nbsp; Nanoelectronics &nbsp;·&nbsp; Hardware &nbsp;·&nbsp; Research</p>
-      <h1 class="hero-name">Gururaghuraman<br/>Sethuraman</h1>
-      <div class="hero-roles">
-        <span id="typed-role" class="typed-role"></span>
-        <span class="cursor">|</span>
+  <!-- ─────────────────────────────────────
+       HERO — scroll-driven white → dark
+  ───────────────────────────────────── -->
+  <section id="hero" class="hero-section">
+    <div class="hero-sticky" id="heroSticky">
+
+      <!-- Large portrait — appears in dark state, positioned right -->
+      <div class="hero-portrait-wrap" id="heroPortrait">
+        <img src="assets/profile.jpg" alt="" class="hero-portrait-img" loading="eager"
+             onerror="this.parentElement.style.display='none'" />
+        <div class="hero-portrait-vignette" id="heroVignette"></div>
       </div>
-      <p class="hero-tagline">Building toward semiconductor fabrication and advanced manufacturing.</p>
-      <p class="hero-sub">
-        I am an Electrical &amp; Electronics Engineer with experience spanning semiconductor device simulation,
-        nanoelectronics, embedded hardware, electrical machines, research and automation. My current focus is
-        developing the expertise required to move from modelling and understanding semiconductor devices to
-        their physical fabrication, characterisation and manufacturing.
-      </p>
-      <div class="hero-actions">
-        <a href="#research" class="btn-primary" data-magnetic>View Research</a>
-        <a href="#contact"  class="btn-outline"  data-magnetic>Get In Touch</a>
+
+      <!-- Main content -->
+      <div class="hero-inner">
+
+        <p class="hero-eyebrow" id="heroEyebrow">
+          Semiconductor Devices &nbsp;·&nbsp; Nanoelectronics &nbsp;·&nbsp; Hardware &nbsp;·&nbsp; Research
+        </p>
+
+        <!-- Wordmark: "I'M" slides off left on scroll, "GURU" stays -->
+        <div class="hero-wordmark-outer" id="heroDisplay">
+          <h1 class="hero-wordmark" id="heroWordmark">
+            <span class="wm-prefix" id="wmPrefix">I'M&nbsp;</span><span class="wm-name">GURU</span>
+          </h1>
+        </div>
+
+        <!-- Lower: name + tagline + CTAs + socials -->
+        <div class="hero-meta">
+          <div class="hero-meta-left">
+            <p class="hero-name-tag" id="heroNameTag">Gururaghuraman Sethuraman</p>
+            <div class="hero-bottom-row" id="heroBottomRow">
+              <p class="hero-tagline">
+                Building toward semiconductor fabrication and advanced manufacturing.
+                Electrical &amp; Electronics Engineer with IEEE-published research and
+                Erasmus Exchange at Grenoble-INP Phelma.
+              </p>
+              <div class="hero-actions">
+                <a href="#research" class="btn-primary" data-magnetic>View Research</a>
+                <a href="#contact"  class="btn-outline"  data-magnetic>Get In Touch</a>
+              </div>
+            </div>
+          </div>
+          <div class="hero-socials" id="heroSocials">
+            <a href="https://github.com/imguxuuuu"                target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+            <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+            <a href="mailto:s.gururaghuraman@gmail.com"           aria-label="Email">EM</a>
+          </div>
+        </div>
+
       </div>
-      <div class="hero-socials">
-        <a href="https://github.com/imguxuuuu"                  target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="https://www.linkedin.com/in/gururaghuraman/"   target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="mailto:s.gururaghuraman@gmail.com"             aria-label="Email"><i class="fas fa-envelope"></i></a>
+
+      <!-- Scroll indicator -->
+      <div class="hero-scroll-hint" aria-hidden="true" id="heroScrollHint">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
       </div>
+
     </div>
-    <div class="scroll-bar"><div class="scroll-fill"></div></div>
   </section>
 
-  <!-- ── ABOUT ── -->
-  <section id="about" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">About <span class="accent">Me</span></h2>
+  <!-- Marquee strip between hero and about -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Semiconductor Devices <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Nanoelectronics <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Device Physics <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Fabrication <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Embedded Systems <span class="marquee-dot"></span></span>
+      <span class="marquee-item">IEEE Research <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Grenoble-INP Phelma <span class="marquee-dot"></span></span>
+      <span class="marquee-item">VLSI <span class="marquee-dot"></span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">Semiconductor Devices <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Nanoelectronics <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Device Physics <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Fabrication <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Embedded Systems <span class="marquee-dot"></span></span>
+      <span class="marquee-item">IEEE Research <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Grenoble-INP Phelma <span class="marquee-dot"></span></span>
+      <span class="marquee-item">VLSI <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────
+       ABOUT
+  ───────────────────────────────────── -->
+  <section id="about" class="sect-light" data-nav="light">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
+
+      <div class="about-header reveal">
+        <p class="section-label">Profile</p>
+        <h2 class="display-heading">ABOUT</h2>
+      </div>
+
       <div class="about-grid">
-        <div class="about-photo-wrap">
+        <div class="about-photo-wrap reveal">
           <img src="assets/profile.jpg" alt="Gururaghuraman Sethuraman" class="about-photo"
-               width="220" height="220"
+               width="400" height="533"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
           <div class="about-photo-placeholder"><i class="fas fa-user"></i></div>
-          <div class="photo-glow"></div>
         </div>
+
         <div class="about-text">
-          <p>
-            I am an <strong>Electrical &amp; Electronics Engineer</strong> whose interests have evolved — steadily and
-            deliberately — from embedded systems and power electronics toward <strong>semiconductor devices,
-            nanoelectronics and fabrication</strong>. That shift was not accidental.
+          <p class="reveal">
+            I am an <strong>Electrical &amp; Electronics Engineer</strong> whose interests have evolved —
+            steadily and deliberately — from embedded systems and power electronics toward
+            <strong>semiconductor devices, nanoelectronics and fabrication</strong>.
+            That shift was not accidental.
           </p>
-          <p>
-            The turning point was my <strong>Erasmus Exchange at Grenoble-INP Phelma</strong>, one of Europe's foremost
-            institutions for semiconductor science and microsystems engineering. Studying <strong>Advanced CMOS,
-            Semiconductor Physics, Nanoelectronics, VLSI and Microsystems</strong>, and working on an MTJ-based
-            random number generator, I encountered the physics and engineering that operates at the boundary of
-            what is currently possible. I became increasingly interested not only in how devices behave, but in
-            <strong>how they are designed, fabricated, characterised and optimised</strong> — and what it takes
-            to do that reliably at industrial scale.
+          <p class="reveal">
+            The turning point was my <strong>Erasmus Exchange at Grenoble-INP Phelma</strong>, one of
+            Europe's foremost institutions for semiconductor science and microsystems engineering.
+            Studying <strong>Advanced CMOS, Semiconductor Physics, Nanoelectronics, VLSI and
+            Microsystems</strong>, and working on an MTJ-based random number generator, I encountered
+            the physics and engineering that operates at the boundary of what is currently possible.
+            I became increasingly interested not only in how devices behave, but in
+            <strong>how they are designed, fabricated, characterised and optimised</strong> — and
+            what it takes to do that reliably at industrial scale.
           </p>
-          <p>
-            My background includes <strong>2 peer-reviewed IEEE publications</strong>, industrial experience at
-            <strong>Robert Bosch</strong> and <strong>Schneider Electric</strong>, a B.Tech in EEE from
-            <strong>Amrita Vishwa Vidyapeetham</strong>, and ongoing professional work in database architecture and
-            process automation. The common thread across all of it is a preference for rigorous, documented,
-            reproducible engineering.
+          <p class="reveal">
+            My background includes <strong>2 peer-reviewed IEEE publications</strong>, industrial
+            experience at <strong>Robert Bosch</strong> and <strong>Schneider Electric</strong>,
+            a B.Tech in EEE from <strong>Amrita Vishwa Vidyapeetham</strong>, and ongoing
+            professional work in database architecture and process automation. The common thread
+            across all of it is a preference for rigorous, documented, reproducible engineering.
           </p>
-          <p>
-            I am now working systematically toward <strong>graduate study in semiconductor engineering and device
-            fabrication</strong>, with the longer-term goal of contributing to — and eventually building — a
-            vertically integrated semiconductor manufacturing capability.
+          <p class="reveal">
+            I am now working systematically toward <strong>graduate study in semiconductor engineering
+            and device fabrication</strong>, with the longer-term goal of contributing to — and
+            eventually building — a vertically integrated semiconductor manufacturing capability.
           </p>
-          <div class="about-stats">
-            <div class="stat reveal"><span class="stat-num">2×</span><span class="stat-label">IEEE Publications</span></div>
-            <div class="stat reveal"><span class="stat-num">Grenoble</span><span class="stat-label">Erasmus Scholar</span></div>
-            <div class="stat reveal"><span class="stat-num">5+</span><span class="stat-label">Industry Roles</span></div>
-            <div class="stat reveal"><span class="stat-num">B.Tech</span><span class="stat-label">EEE · Amrita</span></div>
+
+          <div class="about-stats reveal">
+            <div class="stat"><span class="stat-num">2×</span><span class="stat-label">IEEE Publications</span></div>
+            <div class="stat"><span class="stat-num">Grenoble</span><span class="stat-label">Erasmus Scholar</span></div>
+            <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Industry Roles</span></div>
+            <div class="stat"><span class="stat-num">B.Tech</span><span class="stat-label">EEE · Amrita</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── SEMICONDUCTOR FOCUS ── -->
-  <section id="semiconductor" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Semiconductor <span class="accent">Focus</span></h2>
-      <p class="section-sub">A structured view of where my semiconductor knowledge currently sits — and where I am actively building deeper expertise.</p>
+  <!-- ─────────────────────────────────────
+       SEMICONDUCTOR FOCUS
+  ───────────────────────────────────── -->
+  <section id="semiconductor" class="sect-dark" data-nav="dark">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
+
+      <div class="sem-header reveal">
+        <p class="section-label">Technical Focus</p>
+        <h2 class="display-heading">MICRO<br>ELECTRONICS</h2>
+      </div>
+
       <div class="sem-grid">
 
         <div class="sem-column reveal">
-          <div class="sem-col-header">
-            <span class="sem-col-icon"><i class="fas fa-atom"></i></span>
-            <h3>Device Physics</h3>
-          </div>
+          <h3 class="sem-col-title">Device Physics</h3>
           <div class="sem-group">
             <span class="sem-group-label exposure">Current Exposure</span>
-            <div class="sem-tags">
-              <span>Semiconductor Physics</span><span>Advanced CMOS</span>
-              <span>Nanoelectronics</span><span>VLSI</span><span>Microsystems</span>
-              <span>Spintronics (MTJ)</span><span>LLG Dynamics</span>
-            </div>
+            <ul class="sem-list">
+              <li>Semiconductor Physics</li>
+              <li>Advanced CMOS</li>
+              <li>Nanoelectronics</li>
+              <li>VLSI</li>
+              <li>Microsystems</li>
+              <li>Spintronics (MTJ)</li>
+              <li>LLG Dynamics</li>
+            </ul>
           </div>
           <div class="sem-group">
             <span class="sem-group-label pursuing">Pursuing</span>
-            <div class="sem-tags pursuing-tags">
-              <span>Short-Channel Effects</span><span>FinFET &amp; GAA Devices</span>
-              <span>Band Engineering</span><span>Device Characterization</span>
-            </div>
+            <ul class="sem-list">
+              <li class="pursuing-item">Short-Channel Effects</li>
+              <li class="pursuing-item">FinFET &amp; GAA Devices</li>
+              <li class="pursuing-item">Band Engineering</li>
+              <li class="pursuing-item">Device Characterization</li>
+            </ul>
           </div>
         </div>
 
         <div class="sem-column reveal">
-          <div class="sem-col-header">
-            <span class="sem-col-icon"><i class="fas fa-layer-group"></i></span>
-            <h3>Fabrication</h3>
-          </div>
+          <h3 class="sem-col-title">Fabrication</h3>
           <div class="sem-group">
             <span class="sem-group-label exposure">Current Exposure</span>
-            <div class="sem-tags">
-              <span>Cleanroom Concepts</span><span>Wafer Fab Principles</span>
-              <span>Thin-Film Physics</span><span>Photolithography Theory</span>
-              <span>PTA Cleanroom (Grenoble)</span>
-            </div>
+            <ul class="sem-list">
+              <li>Cleanroom Concepts</li>
+              <li>Wafer Fab Principles</li>
+              <li>Thin-Film Physics</li>
+              <li>Photolithography Theory</li>
+              <li>PTA Cleanroom (Grenoble)</li>
+            </ul>
           </div>
           <div class="sem-group">
             <span class="sem-group-label pursuing">Pursuing</span>
-            <div class="sem-tags pursuing-tags">
-              <span>Lithography Process</span><span>CVD / PVD</span>
-              <span>Wet &amp; Dry Etching</span><span>Ion Implantation</span>
-              <span>CMP</span><span>Process Integration</span>
-            </div>
+            <ul class="sem-list">
+              <li class="pursuing-item">Lithography Process</li>
+              <li class="pursuing-item">CVD / PVD</li>
+              <li class="pursuing-item">Wet &amp; Dry Etching</li>
+              <li class="pursuing-item">Ion Implantation</li>
+              <li class="pursuing-item">CMP</li>
+              <li class="pursuing-item">Process Integration</li>
+            </ul>
           </div>
         </div>
 
         <div class="sem-column reveal">
-          <div class="sem-col-header">
-            <span class="sem-col-icon"><i class="fas fa-industry"></i></span>
-            <h3>Process &amp; Manufacturing</h3>
-          </div>
+          <h3 class="sem-col-title">Process &amp; Manufacturing</h3>
           <div class="sem-group">
             <span class="sem-group-label exposure">Current Exposure</span>
-            <div class="sem-tags">
-              <span>Process Data Management</span><span>Automation Systems</span>
-              <span>Database-Driven Engineering</span><span>Traceability</span>
-            </div>
+            <ul class="sem-list">
+              <li>Process Data Management</li>
+              <li>Automation Systems</li>
+              <li>Database-Driven Engineering</li>
+              <li>Traceability</li>
+            </ul>
           </div>
           <div class="sem-group">
             <span class="sem-group-label pursuing">Pursuing</span>
-            <div class="sem-tags pursuing-tags">
-              <span>Yield Engineering</span><span>Reliability &amp; FMEA</span>
-              <span>Statistical Process Control</span><span>Fab Operations</span>
-              <span>Manufacturing Automation</span>
+            <ul class="sem-list">
+              <li class="pursuing-item">Yield Engineering</li>
+              <li class="pursuing-item">Reliability &amp; FMEA</li>
+              <li class="pursuing-item">Statistical Process Control</li>
+              <li class="pursuing-item">Fab Operations</li>
+              <li class="pursuing-item">Manufacturing Automation</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       RESEARCH
+  ───────────────────────────────────── -->
+  <section id="research" class="sect-offwhite" data-nav="light">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
+
+      <div class="research-header reveal">
+        <p class="section-label">Featured Work</p>
+        <h2 class="display-heading">RESEARCH</h2>
+        <p style="font-size:clamp(13px,1.5vw,15px);color:rgba(0,0,0,0.5);line-height:1.7;max-width:520px;margin-top:16px;">
+          Research work that directly shaped my direction toward semiconductor devices and fabrication.
+        </p>
+      </div>
+
+      <div class="research-items">
+
+        <!-- MTJ RNG -->
+        <div class="research-item reveal" data-cursor="project">
+          <div class="research-bg-num" aria-hidden="true">01</div>
+          <div class="research-content">
+            <div class="research-badges">
+              <span class="research-badge feat">Featured</span>
+              <span class="research-badge">Spintronics · MTJ · Numerical Simulation</span>
+            </div>
+            <h3 class="research-title">MTJ-Based Stochastic Random Number Generator</h3>
+            <p class="research-context">Grenoble-INP Phelma &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Erasmus Exchange Research</p>
+            <p class="research-body">
+              Developed a <strong>numerical solver for the Landau–Lifshitz–Gilbert (LLG) equation</strong>
+              using Heun's second-order Runge-Kutta method, modelling the stochastic switching behaviour
+              of a Magnetic Tunnel Junction as the physical basis for a true random number generator.
+            </p>
+            <p class="research-body">
+              Worked through the formulation systematically — studying the numerical method in the
+              literature, tracing where the stochastic field was applied incorrectly in the time-stepping
+              algorithm, and correcting the implementation until the simulation converged to expected behaviour.
+            </p>
+            <div class="research-outcome-text">
+              This project was my direct introduction to nanoscale magnetic devices and spintronics.
+              It raised questions that deepened my interest in
+              <strong>device-level fabrication and thin-film deposition processes</strong>.
+            </div>
+            <div class="research-skills-row">
+              <span>LLG Equation</span>
+              <span>Heun's Method</span>
+              <span>Python</span>
+              <span>Numerical Simulation</span>
+              <span>Spintronics</span>
+              <span>MTJ Physics</span>
+            </div>
+            <div class="research-link-row">
+              <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener" class="research-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <span class="research-date-small">Grenoble · 2025</span>
+            </div>
+          </div>
+          <div class="research-aside">
+            <div class="research-aside-box">
+              <div class="research-aside-word" aria-hidden="true">MTJ<br>RNG</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IPMSM -->
+        <div class="research-item reverse reveal">
+          <div class="research-bg-num" aria-hidden="true">02</div>
+          <div class="research-content">
+            <div class="research-badges">
+              <span class="research-badge feat">Featured · 2× IEEE Published</span>
+              <span class="research-badge">FEM · Machine Learning · IPMSM</span>
+              <span class="research-badge award"><i class="fas fa-award"></i> Best Paper Award</span>
+            </div>
+            <h3 class="research-title">IPMSM Demagnetization Fault Prediction via FEM &amp; Machine Learning</h3>
+            <p class="research-context">Amrita Vishwa Vidyapeetham &nbsp;·&nbsp; 2024–2025 &nbsp;·&nbsp; Team Lead · 4 members · 2 IEEE Papers</p>
+            <p class="research-body">
+              Physically testing motors with precisely controlled demagnetization levels — 5%, 10%, 15%,
+              20%, 25% — was not practically feasible. Our approach was to generate
+              <strong>controlled fault conditions through high-fidelity FEM simulation</strong>
+              (ANSYS Motor-CAD), using the actual motor geometry and material specifications to
+              produce training datasets that carried real physical meaning.
+            </p>
+            <p class="research-body">
+              Led a team of four: coordinating the modelling pipeline from fault parameterisation
+              and simulation through feature extraction and model selection. The final system used
+              <strong>Gradient Boosting classifiers trained on FEM-generated data</strong>, achieving
+              robust fault-severity discrimination. Presented both papers at IEEE conferences.
+            </p>
+            <div class="research-outcome-text">
+              Two IEEE conference papers. Skills built: building research infrastructure from zero,
+              generating reliable datasets where none exist, making engineering decisions under
+              uncertainty, leading a technical team, and producing
+              <strong>fully documented and reproducible work</strong>.
+            </div>
+            <div class="research-skills-row">
+              <span>ANSYS Motor-CAD</span>
+              <span>FEM</span>
+              <span>Python</span>
+              <span>Gradient Boosting</span>
+              <span>Dataset Generation</span>
+              <span>Research Leadership</span>
+            </div>
+            <div class="research-link-row">
+              <a href="https://github.com/imguxuuuu/demag_predict_IPMSM" target="_blank" rel="noopener" class="research-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://ieeexplore.ieee.org/document/11306357" target="_blank" rel="noopener" class="research-link">
+                <i class="fas fa-external-link-alt"></i> IEEE Xplore
+              </a>
+              <span class="research-date-small">2024–2025</span>
+            </div>
+          </div>
+          <div class="research-aside">
+            <div class="research-aside-box">
+              <div class="research-aside-word" aria-hidden="true">FEM<br>ML</div>
             </div>
           </div>
         </div>
@@ -226,263 +481,215 @@
     </div>
   </section>
 
-  <!-- ── FEATURED RESEARCH ── -->
-  <section id="research" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Featured <span class="accent">Research</span></h2>
-      <p class="section-sub">Research work that directly shaped my direction toward semiconductor devices and fabrication.</p>
+  <!-- ─────────────────────────────────────
+       EXPERIENCE
+  ───────────────────────────────────── -->
+  <section id="experience" class="sect-dark" data-nav="dark">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
 
-      <!-- MTJ RNG -->
-      <div class="research-card tilt-card reveal">
-        <div class="research-card-inner">
-          <div class="research-meta">
-            <span class="research-badge feat"><i class="fas fa-star"></i> Featured</span>
-            <span class="research-badge tech">Spintronics &nbsp;·&nbsp; MTJ &nbsp;·&nbsp; Numerical Simulation</span>
-          </div>
-          <div class="research-icon"><i class="fas fa-random"></i></div>
-          <h3>MTJ-Based Stochastic Random Number Generator</h3>
-          <p class="research-context">Grenoble-INP Phelma &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Research project during Erasmus exchange</p>
-          <p>
-            Developed a <strong>numerical solver for the Landau–Lifshitz–Gilbert (LLG) equation</strong> using Heun's
-            second-order Runge-Kutta method, modelling the stochastic switching behaviour of a Magnetic Tunnel Junction
-            as the physical basis for a true random number generator.
-          </p>
-          <p>
-            The initial implementation did not reproduce physically correct switching distributions when incorporating
-            effective and thermal field terms. I worked through the formulation systematically — studying the numerical
-            method in the literature, tracing where the stochastic field was applied incorrectly in the time-stepping
-            algorithm, and correcting the implementation until the simulation converged to expected behaviour.
-          </p>
-          <div class="research-outcome">
-            This project was my direct introduction to <strong>nanoscale magnetic devices and spintronics</strong>. It
-            raised questions I could not answer without understanding how such devices are actually made — junction area,
-            barrier thickness, magnetic anisotropy — which deepened my interest in
-            <strong>device-level fabrication and thin-film deposition processes</strong>.
-          </div>
-          <div class="research-skills">
-            <span>LLG Equation</span><span>Heun's Method</span><span>Python</span>
-            <span>Numerical Simulation</span><span>Spintronics</span><span>MTJ Physics</span>
-          </div>
-          <div class="research-links">
-            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-            <span class="research-date">Grenoble · 2025</span>
-          </div>
-        </div>
+      <div class="exp-header reveal">
+        <p class="section-label">Work History</p>
+        <h2 class="display-heading">EXPERIENCE</h2>
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);margin-top:14px;letter-spacing:0.04em;">
+          Click any entry to expand details.
+        </p>
       </div>
 
-      <!-- IPMSM -->
-      <div class="research-card tilt-card reveal">
-        <div class="research-card-inner">
-          <div class="research-meta">
-            <span class="research-badge feat"><i class="fas fa-star"></i> Featured &nbsp;·&nbsp; 2× IEEE Published</span>
-            <span class="research-badge tech">FEM &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; IPMSM</span>
-            <span class="research-badge award"><i class="fas fa-award"></i> Best Paper Award</span>
+      <div class="exp-list-editorial">
+
+        <!-- AInsurCo (Current) -->
+        <div class="exp-item reveal" data-exp>
+          <div class="exp-date">Aug 2025<br>Present</div>
+          <div class="exp-content">
+            <p class="exp-role">Systems &amp; Automation Engineer</p>
+            <p class="exp-company">AInsurCo &nbsp;·&nbsp; Remote — London, UK</p>
+            <div class="exp-badge-row">
+              <span class="exp-badge current">Current</span>
+              <span class="exp-badge">SQL</span>
+              <span class="exp-badge">Python</span>
+              <span class="exp-badge">Celery</span>
+              <span class="exp-badge">Database Architecture</span>
+              <span class="exp-badge">Process Automation</span>
+            </div>
+            <div class="exp-detail">
+              <div class="exp-detail-inner">
+                <p class="exp-detail-intro">
+                  Redesigned an Excel-dependent data workflow into a structured relational database
+                  and introduced batch automation — building skills directly transferable to
+                  manufacturing environments.
+                </p>
+                <ul class="exp-detail-list">
+                  <li>Architected <strong>10+ relational database schemas</strong> for production-grade data operations, applying normalisation, indexing and constraint strategies.</li>
+                  <li>Authored and optimised <strong>30+ SQL stored procedures</strong> for reporting, validation and data pipelines.</li>
+                  <li>Engineered <strong>5+ Python batch automation scripts</strong> (Celery) for scheduled data-processing tasks.</li>
+                  <li>Resolved <strong>15+ data-integrity issues</strong> through constraint enforcement and automated validation.</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="research-icon"><i class="fas fa-magnet"></i></div>
-          <h3>IPMSM Demagnetization Fault Prediction via FEM &amp; Machine Learning</h3>
-          <p class="research-context">Amrita Vishwa Vidyapeetham &nbsp;·&nbsp; 2024–2025 &nbsp;·&nbsp; Team lead &nbsp;·&nbsp; 4 members &nbsp;·&nbsp; 2 IEEE conference papers</p>
-          <p>
-            Physically testing motors with precisely controlled demagnetization levels — 5%, 10%, 15%, 20%, 25% — was not
-            practically feasible. Our approach was to generate <strong>controlled fault conditions through high-fidelity FEM
-            simulation</strong> (ANSYS Motor-CAD), using the actual motor geometry and material specifications to produce
-            training datasets that carried real physical meaning rather than being synthetic approximations.
-          </p>
-          <p>
-            I led a team of four: coordinating the modelling pipeline from fault parameterisation and simulation through
-            feature extraction and model selection. The final system used <strong>Gradient Boosting classifiers trained on
-            FEM-generated data</strong>, achieving robust fault-severity discrimination across all demagnetization classes.
-            I presented both resulting papers at their respective IEEE conferences.
-          </p>
-          <div class="research-outcome">
-            Two IEEE conference papers. What this project developed: <strong>building research infrastructure from zero,
-            generating reliable datasets where none exist, making engineering decisions under uncertainty, leading a
-            technical team, and producing fully documented and reproducible work</strong>. These are the same capabilities
-            required in fabrication research.
-          </div>
-          <div class="research-skills">
-            <span>ANSYS Motor-CAD</span><span>FEM</span><span>Python</span>
-            <span>Gradient Boosting</span><span>Dataset Generation</span><span>Research Leadership</span>
-          </div>
-          <div class="research-links">
-            <a href="https://github.com/imguxuuuu/demag_predict_IPMSM" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://ieeexplore.ieee.org/document/11306357"     target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> IEEE Xplore</a>
-            <span class="research-date">2024–2025</span>
-          </div>
+          <div class="exp-arrow" aria-hidden="true">↗</div>
         </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── PROFESSIONAL EXPERIENCE ── -->
-  <section id="experience" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Professional <span class="accent">Experience</span></h2>
-      <div class="timeline">
 
         <!-- Robert Bosch -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="exp-header">
-              <div>
-                <div class="exp-badge bosch">Robert Bosch</div>
-                <h3>Embedded Hardware Intern</h3>
-                <h4><i class="fas fa-building"></i> Robert Bosch Limited &nbsp;·&nbsp; Bangalore, India</h4>
-                <p class="edu-date"><i class="fas fa-calendar-alt"></i> June 2024 – July 2024</p>
+        <div class="exp-item reveal" data-exp>
+          <div class="exp-date">Jun 2024<br>Jul 2024</div>
+          <div class="exp-content">
+            <p class="exp-role">Embedded Hardware Intern</p>
+            <p class="exp-company">Robert Bosch Limited &nbsp;·&nbsp; Bangalore, India</p>
+            <div class="exp-badge-row">
+              <span class="exp-badge">Embedded C</span>
+              <span class="exp-badge">CAN Bus</span>
+              <span class="exp-badge">CANalyzer</span>
+              <span class="exp-badge">HV Testbed</span>
+              <span class="exp-badge">VCU</span>
+            </div>
+            <div class="exp-detail">
+              <div class="exp-detail-inner">
+                <p class="exp-detail-intro">
+                  Hardware engineering on live EV testbeds — CAN validation, Embedded C firmware
+                  development, and hands-on debugging of vehicle communication systems.
+                </p>
+                <ul class="exp-detail-list">
+                  <li><strong>VCU Reverse Signal Fault Resolution:</strong> Captured and analysed CAN frames using CANalyzer, traced the fault to the communication layer, developed an Embedded C solution to trigger the reverse brake light through a relay.</li>
+                  <li>Developed and validated <strong>5+ Embedded C firmware modules</strong> implementing CAN communication layers for EV benchmarking infrastructure and VCU interfaces.</li>
+                  <li>Analysed <strong>100+ CAN frames</strong> using CANalyzer across <strong>3+ live High-Voltage testbeds</strong>.</li>
+                  <li>Contributed to E-axle architecture evaluation across 2 HV subsystem configurations.</li>
+                </ul>
               </div>
             </div>
-            <p class="card-intro">Hardware engineering on live EV testbeds — CAN validation, Embedded C firmware development, and hands-on debugging of vehicle communication systems.</p>
-            <ul class="exp-list">
-              <li>
-                <strong>VCU Reverse Signal Fault Resolution:</strong> An EV conversion test vehicle was not correctly
-                communicating the reverse signal through the VCU. Captured and analysed CAN frames using CANalyzer,
-                compared expected versus actual DLC and signal states, traced the fault to the communication layer, and
-                developed an Embedded C solution to trigger the reverse brake light through a relay — making the vehicle
-                road-testable.
-              </li>
-              <li>Developed and validated <strong>5+ Embedded C firmware modules</strong> implementing CAN communication layers for EV benchmarking infrastructure and VCU interfaces.</li>
-              <li>Analysed <strong>100+ CAN frames</strong> using CANalyzer — DLC verification, error-state capture and fault-injection across <strong>3+ live High-Voltage testbeds</strong>.</li>
-              <li>Contributed to E-axle architecture evaluation across 2 HV subsystem configurations.</li>
-            </ul>
-            <div class="edu-tags">
-              <span>Embedded C</span><span>CAN Bus</span><span>CANalyzer</span><span>HV Testbed</span><span>VCU</span><span>E-Axle</span><span>Hardware Debugging</span>
-            </div>
           </div>
-        </div>
-
-        <!-- AInsurCo -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="exp-header">
-              <div>
-                <div class="exp-badge current">Current</div>
-                <h3>Systems &amp; Automation Engineer</h3>
-                <h4><i class="fas fa-building"></i> AInsurCo &nbsp;·&nbsp; Remote — London, UK</h4>
-                <p class="edu-date"><i class="fas fa-calendar-alt"></i> Aug 2025 – Present</p>
-              </div>
-            </div>
-            <p class="card-intro">Redesigned an Excel-dependent data workflow into a structured relational database and introduced batch automation — building skills in systems engineering, traceability and process data management directly transferable to manufacturing environments.</p>
-            <ul class="exp-list">
-              <li>Architected <strong>10+ relational database schemas</strong> for production-grade data operations, applying normalisation, indexing and constraint strategies.</li>
-              <li>Authored and optimised <strong>30+ SQL stored procedures</strong> for reporting, validation and data pipelines.</li>
-              <li>Engineered <strong>5+ Python batch automation scripts</strong> (Celery) for scheduled data-processing tasks.</li>
-              <li>Resolved <strong>15+ data-integrity issues</strong> through constraint enforcement and automated validation.</li>
-            </ul>
-            <div class="edu-tags">
-              <span>SQL</span><span>Python</span><span>Celery</span><span>Database Architecture</span><span>Process Automation</span><span>Traceability</span>
-            </div>
-          </div>
+          <div class="exp-arrow" aria-hidden="true">↗</div>
         </div>
 
         <!-- Schneider -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <h3>Supply Chain Intern — Electronics Division</h3>
-            <h4><i class="fas fa-building"></i> Schneider Electric &nbsp;·&nbsp; Chennai, India</h4>
-            <p class="edu-date"><i class="fas fa-calendar-alt"></i> July 2023</p>
-            <ul class="exp-list">
-              <li>Validated <strong>150+ PCB components</strong> across power-electronics manufacturing lines against design specifications.</li>
-              <li>Analysed component lifecycle and supply dependencies for <strong>8+ critical converter subsystems</strong>.</li>
-            </ul>
-            <div class="edu-tags">
-              <span>PCB Inspection</span><span>Power Electronics</span><span>Supply Chain</span><span>Component Validation</span>
+        <div class="exp-item reveal" data-exp>
+          <div class="exp-date">Jul 2023</div>
+          <div class="exp-content">
+            <p class="exp-role">Supply Chain Intern — Electronics Division</p>
+            <p class="exp-company">Schneider Electric &nbsp;·&nbsp; Chennai, India</p>
+            <div class="exp-badge-row">
+              <span class="exp-badge">PCB Inspection</span>
+              <span class="exp-badge">Power Electronics</span>
+              <span class="exp-badge">Supply Chain</span>
+              <span class="exp-badge">Component Validation</span>
+            </div>
+            <div class="exp-detail">
+              <div class="exp-detail-inner">
+                <ul class="exp-detail-list">
+                  <li>Validated <strong>150+ PCB components</strong> across power-electronics manufacturing lines against design specifications.</li>
+                  <li>Analysed component lifecycle and supply dependencies for <strong>8+ critical converter subsystems</strong>.</li>
+                </ul>
+              </div>
             </div>
           </div>
+          <div class="exp-arrow" aria-hidden="true">↗</div>
         </div>
 
         <!-- Igarashi -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <h3>Manufacturing &amp; Quality Intern</h3>
-            <h4><i class="fas fa-building"></i> Igarashi Motor Pvt Ltd &nbsp;·&nbsp; Chennai, India</h4>
-            <p class="edu-date"><i class="fas fa-calendar-alt"></i> Feb. 2023</p>
-            <ul class="exp-list">
-              <li>Audited motor assembly workflows across <strong>3+ production stations</strong>, contributing to an estimated <strong>10–15% reduction</strong> in inspection cycle time.</li>
-              <li>Improved BOM accuracy for <strong>20+ line items</strong>, strengthening defect-traceability documentation.</li>
-            </ul>
-            <div class="edu-tags">
-              <span>Motor Assembly</span><span>BOM</span><span>Quality Audit</span><span>Defect Traceability</span>
+        <div class="exp-item reveal" data-exp>
+          <div class="exp-date">Feb 2023</div>
+          <div class="exp-content">
+            <p class="exp-role">Manufacturing &amp; Quality Intern</p>
+            <p class="exp-company">Igarashi Motor Pvt Ltd &nbsp;·&nbsp; Chennai, India</p>
+            <div class="exp-badge-row">
+              <span class="exp-badge">Motor Assembly</span>
+              <span class="exp-badge">BOM</span>
+              <span class="exp-badge">Quality Audit</span>
+              <span class="exp-badge">Defect Traceability</span>
+            </div>
+            <div class="exp-detail">
+              <div class="exp-detail-inner">
+                <ul class="exp-detail-list">
+                  <li>Audited motor assembly workflows across <strong>3+ production stations</strong>, contributing to an estimated <strong>10–15% reduction</strong> in inspection cycle time.</li>
+                  <li>Improved BOM accuracy for <strong>20+ line items</strong>, strengthening defect-traceability documentation.</li>
+                </ul>
+              </div>
             </div>
           </div>
+          <div class="exp-arrow" aria-hidden="true">↗</div>
         </div>
 
         <!-- Sri Balaji -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <h3>Quality Intern — Electronics Assembly</h3>
-            <h4><i class="fas fa-building"></i> Sri Balaji Assembles &amp; Plastics India Pvt Ltd &nbsp;·&nbsp; Chennai, India</h4>
-            <p class="edu-date"><i class="fas fa-calendar-alt"></i> July 2022 – Aug. 2022</p>
-            <ul class="exp-list">
-              <li>IPC/ISO-compliant quality control across <strong>50+ electronic sub-assembly units</strong>.</li>
-              <li>Isolated component-level defects across <strong>10+ assembly batches</strong>, reducing rework cycles.</li>
-            </ul>
-            <div class="edu-tags">
-              <span>IPC Standards</span><span>ISO QC</span><span>Electronics Assembly</span><span>Defect Analysis</span>
+        <div class="exp-item reveal" data-exp>
+          <div class="exp-date">Jul 2022<br>Aug 2022</div>
+          <div class="exp-content">
+            <p class="exp-role">Quality Intern — Electronics Assembly</p>
+            <p class="exp-company">Sri Balaji Assembles &amp; Plastics India Pvt Ltd &nbsp;·&nbsp; Chennai, India</p>
+            <div class="exp-badge-row">
+              <span class="exp-badge">IPC Standards</span>
+              <span class="exp-badge">ISO QC</span>
+              <span class="exp-badge">Electronics Assembly</span>
+              <span class="exp-badge">Defect Analysis</span>
+            </div>
+            <div class="exp-detail">
+              <div class="exp-detail-inner">
+                <ul class="exp-detail-list">
+                  <li>IPC/ISO-compliant quality control across <strong>50+ electronic sub-assembly units</strong>.</li>
+                  <li>Isolated component-level defects across <strong>10+ assembly batches</strong>, reducing rework cycles.</li>
+                </ul>
+              </div>
             </div>
           </div>
+          <div class="exp-arrow" aria-hidden="true">↗</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ── EDUCATION ── -->
-  <section id="education" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Edu<span class="accent">cation</span></h2>
-      <div class="timeline">
+  <!-- ─────────────────────────────────────
+       EDUCATION
+  ───────────────────────────────────── -->
+  <section id="education" class="sect-light" data-nav="light">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
 
-        <!-- Grenoble — prominent and first -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="edu-icon"><i class="fas fa-atom"></i></div>
-            <div class="edu-badge erasmus">Erasmus Scholarship</div>
-            <h3>Exchange Programme — Semiconductor Devices &amp; Nanoelectronics</h3>
-            <h4>Grenoble-INP Phelma &nbsp;·&nbsp; Grenoble, France</h4>
-            <p class="edu-date"><i class="fas fa-calendar-alt"></i> Jan. 2025 – Jun. 2025</p>
-            <p>
-              Selected as the <strong>only student from the department</strong> for the competitive Erasmus Exchange
-              Scholarship at Grenoble-INP Phelma — one of Europe's foremost institutions for semiconductor science,
-              microsystems and nanofabrication. Studied advanced semiconductor topics with access to PTA
-              (Plateforme Technologique Amont) cleanroom facilities.
+      <div class="edu-header reveal">
+        <p class="section-label">Academic Background</p>
+        <h2 class="display-heading">EDUCATION</h2>
+      </div>
+
+      <div class="edu-list">
+
+        <!-- Grenoble -->
+        <div class="edu-item reveal">
+          <div class="edu-year">Jan 2025<br>Jun 2025</div>
+          <div>
+            <span class="edu-badge-pill erasmus">Erasmus Scholarship</span>
+            <h3 class="edu-degree">Exchange Programme — Semiconductor Devices &amp; Nanoelectronics</h3>
+            <p class="edu-institution">Grenoble-INP Phelma &nbsp;·&nbsp; Grenoble, France</p>
+            <p class="edu-body">
+              Selected as the <strong>only student from the department</strong> for the competitive Erasmus
+              Exchange Scholarship at Grenoble-INP Phelma — one of Europe's foremost institutions for
+              semiconductor science, microsystems and nanofabrication. Studied advanced semiconductor
+              topics with access to PTA (Plateforme Technologique Amont) cleanroom facilities.
             </p>
-            <div class="edu-coursework">
-              <span class="coursework-label">Coursework</span>
-              <div class="edu-tags">
-                <span>Advanced CMOS</span><span>Semiconductor Physics</span><span>Nanoelectronics</span>
-                <span>VLSI</span><span>Microsystems</span>
-              </div>
+            <p class="edu-label">Coursework</p>
+            <div class="edu-tags-wrap">
+              <span>Advanced CMOS</span><span>Semiconductor Physics</span>
+              <span>Nanoelectronics</span><span>VLSI</span><span>Microsystems</span>
             </div>
-            <div class="edu-coursework">
-              <span class="coursework-label">Research Exposure</span>
-              <div class="edu-tags">
-                <span>Spintronics</span><span>MTJ-Based Devices</span><span>LLG Numerical Simulation</span><span>PTA Cleanroom Access</span>
-              </div>
+            <p class="edu-label">Research Exposure</p>
+            <div class="edu-tags-wrap">
+              <span>Spintronics</span><span>MTJ-Based Devices</span>
+              <span>LLG Numerical Simulation</span><span>PTA Cleanroom Access</span>
             </div>
           </div>
         </div>
 
         <!-- Amrita -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="edu-icon"><i class="fas fa-microchip"></i></div>
-            <h3>Bachelor of Technology — Electrical &amp; Electronics Engineering</h3>
-            <h4>Amrita Vishwa Vidyapeetham &nbsp;·&nbsp; Coimbatore, India</h4>
-            <p class="edu-date"><i class="fas fa-calendar-alt"></i> Apr. 2021 – May 2025</p>
-            <p>
-              Comprehensive B.Tech programme spanning embedded systems, power electronics and electric drives.
-              Produced 2 IEEE-published research papers during the degree.
+        <div class="edu-item reveal">
+          <div class="edu-year">Apr 2021<br>May 2025</div>
+          <div>
+            <h3 class="edu-degree">B.Tech — Electrical &amp; Electronics Engineering</h3>
+            <p class="edu-institution">Amrita Vishwa Vidyapeetham &nbsp;·&nbsp; Coimbatore, India</p>
+            <p class="edu-body">
+              Comprehensive B.Tech programme spanning embedded systems, power electronics and
+              electric drives. Produced 2 IEEE-published research papers during the degree.
             </p>
-            <div class="edu-tags">
+            <div class="edu-tags-wrap">
               <span>Electronics</span><span>Power Electronics</span><span>Embedded Systems</span>
-              <span>Control Systems</span><span>Electric Drives</span><span>Electrical Machines</span><span>Simulation &amp; Modelling</span>
+              <span>Control Systems</span><span>Electric Drives</span>
+              <span>Electrical Machines</span><span>Simulation &amp; Modelling</span>
             </div>
           </div>
         </div>
@@ -491,46 +698,60 @@
     </div>
   </section>
 
-  <!-- ── IEEE PUBLICATIONS ── -->
-  <section id="publications" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">IEEE <span class="accent">Publications</span></h2>
-      <p class="section-sub">Peer-reviewed research combining Finite Element Analysis with Machine Learning for electric motor fault diagnostics.</p>
-      <div class="pub-grid">
+  <!-- ─────────────────────────────────────
+       PUBLICATIONS
+  ───────────────────────────────────── -->
+  <section id="publications" class="sect-dark" data-nav="dark">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
 
-        <div class="pub-card tilt-card reveal">
-          <div class="pub-badge">IEEE CONECCT 2025</div>
-          <div class="pub-badge pub-award-badge"><i class="fas fa-award"></i> Best Paper Award</div>
-          <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
-          <h3>Demagnetization in V-shaped IPMSM: A Fusion of Finite Element Analysis and Machine Learning</h3>
-          <p>
-            A hybrid diagnostic framework combining high-fidelity FEM simulation with supervised ML for early-stage detection
-            of permanent-magnet demagnetization in V-shaped IPMSM — applicable to next-generation EV drivetrains.
-          </p>
-          <div class="pub-meta">
-            <span><i class="fas fa-calendar-alt"></i> June 2025</span>
-            <span><i class="fas fa-users"></i> Led team of 4 · Presented</span>
+      <div class="pub-header reveal">
+        <p class="section-label">Peer-Reviewed Work</p>
+        <h2 class="display-heading">PUBLICATIONS</h2>
+        <p class="pub-sub">
+          Peer-reviewed research combining Finite Element Analysis with Machine Learning
+          for electric motor fault diagnostics.
+        </p>
+      </div>
+
+      <div class="pub-list">
+
+        <div class="pub-item reveal">
+          <div>
+            <p class="pub-venue">IEEE CONECCT 2025</p>
+            <span class="pub-award-pill"><i class="fas fa-award"></i> Best Paper Award</span>
           </div>
-          <div class="pub-links">
-            <a href="https://ieeexplore.ieee.org/document/11306357" target="_blank" rel="noopener">
+          <div>
+            <h3 class="pub-title">Demagnetization in V-shaped IPMSM: A Fusion of Finite Element Analysis and Machine Learning</h3>
+            <p class="pub-desc">
+              A hybrid diagnostic framework combining high-fidelity FEM simulation with supervised ML
+              for early-stage detection of permanent-magnet demagnetization in V-shaped IPMSM —
+              applicable to next-generation EV drivetrains.
+            </p>
+            <div class="pub-meta-row">
+              <span><i class="fas fa-calendar-alt"></i> June 2025</span>
+              <span><i class="fas fa-users"></i> Led team of 4 · Presented</span>
+            </div>
+            <a href="https://ieeexplore.ieee.org/document/11306357" target="_blank" rel="noopener" class="pub-link">
               <i class="fas fa-external-link-alt"></i> View on IEEE Xplore
             </a>
           </div>
         </div>
 
-        <div class="pub-card tilt-card reveal">
-          <div class="pub-badge">ICPERS 2025</div>
-          <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
-          <h3>Machine Learning-based Analysis on Non-uniform Demagnetization Fault in IPMSM Using FEM</h3>
-          <p>
-            Investigates non-uniform demagnetization fault patterns using FEM-generated datasets and ML classifiers,
-            achieving robust fault-severity discrimination for predictive maintenance in EV powertrain systems.
-          </p>
-          <div class="pub-meta">
-            <span><i class="fas fa-calendar-alt"></i> May 2025</span>
-            <span><i class="fas fa-users"></i> Led team of 4 · Presented</span>
+        <div class="pub-item reveal">
+          <div>
+            <p class="pub-venue">ICPERS 2025</p>
           </div>
-          <div class="pub-links">
+          <div>
+            <h3 class="pub-title">Machine Learning-based Analysis on Non-uniform Demagnetization Fault in IPMSM Using FEM</h3>
+            <p class="pub-desc">
+              Investigates non-uniform demagnetization fault patterns using FEM-generated datasets
+              and ML classifiers, achieving robust fault-severity discrimination for predictive
+              maintenance in EV powertrain systems.
+            </p>
+            <div class="pub-meta-row">
+              <span><i class="fas fa-calendar-alt"></i> May 2025</span>
+              <span><i class="fas fa-users"></i> Led team of 4 · Presented</span>
+            </div>
             <span class="pub-pending"><i class="fas fa-clock"></i> Pending Publication</span>
           </div>
         </div>
@@ -539,156 +760,258 @@
     </div>
   </section>
 
-  <!-- ── SKILLS ── -->
-  <section id="skills" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Tech <span class="accent">Skills</span></h2>
+  <!-- ─────────────────────────────────────
+       SKILLS
+  ───────────────────────────────────── -->
+  <section id="skills" class="sect-light" data-nav="light">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
 
-      <div class="skills-tier">
-        <div class="skills-tier-label"><span class="tier-num">01</span><span class="tier-name">Semiconductor &amp; Electronics</span></div>
-        <div class="skills-grid">
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-atom"></i> Semiconductor &amp; Devices</h3>
-            <div class="skill-tags">
-              <span>Semiconductor Physics</span><span>Advanced CMOS</span><span>Nanoelectronics</span>
-              <span>VLSI</span><span>Microsystems</span><span>Spintronics</span><span>MTJ Devices</span>
+      <div class="skills-header reveal">
+        <p class="section-label">Capabilities</p>
+        <h2 class="display-heading">TECHNICAL<br>SKILLS</h2>
+      </div>
+
+      <div class="skills-tiers">
+
+        <div class="skills-tier reveal">
+          <div class="skills-tier-name">Semiconductor<br>&amp; Electronics</div>
+          <div class="skills-groups">
+            <div class="skill-group">
+              <h3>Semiconductor &amp; Devices</h3>
+              <ul class="skill-text-list">
+                <li>Semiconductor Physics</li>
+                <li>Advanced CMOS</li>
+                <li>Nanoelectronics</li>
+                <li>VLSI</li>
+                <li>Microsystems</li>
+                <li>Spintronics</li>
+                <li>MTJ Devices</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-bolt"></i> Electronics &amp; Power</h3>
-            <div class="skill-tags">
-              <span>Electronics</span><span>Power Electronics</span><span>Electric Drives</span>
-              <span>Motor Control</span><span>Electrical Machines</span><span>Control Systems</span>
+            <div class="skill-group">
+              <h3>Electronics &amp; Power</h3>
+              <ul class="skill-text-list">
+                <li>Power Electronics</li>
+                <li>Electric Drives</li>
+                <li>Motor Control</li>
+                <li>Electrical Machines</li>
+                <li>Control Systems</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="skills-tier">
-        <div class="skills-tier-label"><span class="tier-num">02</span><span class="tier-name">Hardware &amp; Embedded</span></div>
-        <div class="skills-grid">
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-code"></i> Languages</h3>
-            <div class="skill-tags">
-              <span>C</span><span>Embedded C</span><span>Verilog HDL</span><span>Python</span><span>SQL</span>
+        <div class="skills-tier reveal">
+          <div class="skills-tier-name">Hardware<br>&amp; Embedded</div>
+          <div class="skills-groups">
+            <div class="skill-group">
+              <h3>Languages</h3>
+              <ul class="skill-text-list">
+                <li>C</li>
+                <li>Embedded C</li>
+                <li>Verilog HDL</li>
+                <li>Python</li>
+                <li>SQL</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-microchip"></i> MCUs &amp; Platforms</h3>
-            <div class="skill-tags">
-              <span>STM32</span><span>dsPIC</span><span>ESP32</span><span>Arduino</span><span>Raspberry Pi 4</span>
+            <div class="skill-group">
+              <h3>MCUs &amp; Platforms</h3>
+              <ul class="skill-text-list">
+                <li>STM32</li>
+                <li>dsPIC</li>
+                <li>ESP32</li>
+                <li>Arduino</li>
+                <li>Raspberry Pi 4</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-network-wired"></i> Protocols</h3>
-            <div class="skill-tags">
-              <span>CAN Bus</span><span>UART</span><span>SPI</span><span>I2C</span>
+            <div class="skill-group">
+              <h3>Protocols</h3>
+              <ul class="skill-text-list">
+                <li>CAN Bus</li>
+                <li>UART</li>
+                <li>SPI</li>
+                <li>I2C</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-car-battery"></i> Automotive &amp; EV</h3>
-            <div class="skill-tags">
-              <span>CANalyzer</span><span>CANoe</span><span>EV Benchmarking</span><span>VCU Interface</span><span>HV Testbed</span>
+            <div class="skill-group">
+              <h3>Automotive &amp; EV</h3>
+              <ul class="skill-text-list">
+                <li>CANalyzer</li>
+                <li>CANoe</li>
+                <li>EV Benchmarking</li>
+                <li>VCU Interface</li>
+                <li>HV Testbed</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="skills-tier">
-        <div class="skills-tier-label"><span class="tier-num">03</span><span class="tier-name">Simulation &amp; Research</span></div>
-        <div class="skills-grid">
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-flask"></i> EDA &amp; Simulation</h3>
-            <div class="skill-tags">
-              <span>MATLAB/Simulink</span><span>ANSYS Motor-CAD</span><span>LTspice</span>
-              <span>Vivado</span><span>Multisim</span><span>ETAP</span><span>AutoCAD</span>
+        <div class="skills-tier reveal">
+          <div class="skills-tier-name">Simulation<br>&amp; Research</div>
+          <div class="skills-groups">
+            <div class="skill-group">
+              <h3>EDA &amp; Simulation</h3>
+              <ul class="skill-text-list">
+                <li>MATLAB / Simulink</li>
+                <li>ANSYS Motor-CAD</li>
+                <li>LTspice</li>
+                <li>Vivado</li>
+                <li>Multisim</li>
+                <li>ETAP</li>
+                <li>AutoCAD</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-microchip"></i> PCB &amp; Hardware Design</h3>
-            <div class="skill-tags">
-              <span>KiCad 9</span><span>PCB Design</span><span>PCB Layout</span>
-              <span>Schematic Capture</span><span>DRC / ERC</span><span>Gerber</span><span>BOM</span>
+            <div class="skill-group">
+              <h3>PCB &amp; Hardware Design</h3>
+              <ul class="skill-text-list">
+                <li>KiCad 9</li>
+                <li>PCB Design &amp; Layout</li>
+                <li>Schematic Capture</li>
+                <li>DRC / ERC</li>
+                <li>Gerber</li>
+                <li>BOM</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-brain"></i> ML &amp; Analysis</h3>
-            <div class="skill-tags">
-              <span>Machine Learning</span><span>Gradient Boosting</span><span>FEM Analysis</span>
-              <span>Numerical Methods</span><span>Data Pipelines</span>
+            <div class="skill-group">
+              <h3>ML &amp; Analysis</h3>
+              <ul class="skill-text-list">
+                <li>Machine Learning</li>
+                <li>Gradient Boosting</li>
+                <li>FEM Analysis</li>
+                <li>Numerical Methods</li>
+                <li>Data Pipelines</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="skills-tier">
-        <div class="skills-tier-label"><span class="tier-num">04</span><span class="tier-name">Systems &amp; Automation</span></div>
-        <div class="skills-grid">
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-database"></i> Database &amp; Systems</h3>
-            <div class="skill-tags">
-              <span>Relational DB Design</span><span>Schema Architecture</span><span>Query Optimisation</span>
-              <span>Batch Processing</span><span>Data Integrity</span>
+        <div class="skills-tier reveal">
+          <div class="skills-tier-name">Systems<br>&amp; Automation</div>
+          <div class="skills-groups">
+            <div class="skill-group">
+              <h3>Database &amp; Systems</h3>
+              <ul class="skill-text-list">
+                <li>Relational DB Design</li>
+                <li>Schema Architecture</li>
+                <li>Query Optimisation</li>
+                <li>Batch Processing</li>
+                <li>Data Integrity</li>
+              </ul>
             </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3><i class="fas fa-tools"></i> Dev Tools</h3>
-            <div class="skill-tags">
-              <span>Git</span><span>Docker</span><span>CI/CD</span><span>Celery</span><span>MPLAB X</span>
+            <div class="skill-group">
+              <h3>Dev Tools</h3>
+              <ul class="skill-text-list">
+                <li>Git</li>
+                <li>Docker</li>
+                <li>CI/CD</li>
+                <li>Celery</li>
+                <li>MPLAB X</li>
+              </ul>
             </div>
           </div>
         </div>
+
       </div>
 
-      <div class="lang-row reveal">
-        <h3 class="lang-title"><i class="fas fa-globe"></i> Languages Spoken</h3>
-        <div class="lang-tags">
-          <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">C1 · IELTS 7.0</span></div>
-          <div class="lang-item"><span class="lang-name">Tamil</span><span class="lang-level">C2 · Native</span></div>
-          <div class="lang-item"><span class="lang-name">Telugu</span><span class="lang-level">C2 · Native</span></div>
-          <div class="lang-item"><span class="lang-name">Deutsch</span><span class="lang-level">A1 · Goethe</span></div>
+      <div class="lang-section reveal">
+        <div class="lang-section-title">Languages<br>Spoken</div>
+        <div class="lang-items">
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-level">C1 · IELTS 7.0</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Tamil</span>
+            <span class="lang-level">C2 · Native</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Telugu</span>
+            <span class="lang-level">C2 · Native</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Deutsch</span>
+            <span class="lang-level">A1 · Goethe</span>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ── OTHER PROJECTS ── -->
-  <section id="projects" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">Other <span class="accent">Projects</span></h2>
-      <div class="projects-grid">
+  <!-- ─────────────────────────────────────
+       PROJECTS
+  ───────────────────────────────────── -->
+  <section id="projects" class="sect-dark" data-nav="dark">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
 
-        <div class="project-card tilt-card reveal">
-          <div class="project-icon"><i class="fas fa-microchip"></i></div>
-          <h3>Li-Ion Battery Protection PCB</h3>
-          <p>Manufacturing-ready <strong>2-layer PCB</strong> (90 × 40 mm) for single-cell Li-Ion protection — Schottky reverse-current protection, <strong>500 mA resettable polyfuse</strong>, voltage divider for ADC monitoring, copper ground pour. DRC passed with <strong>zero errors</strong>. Full Gerber, BOM and LTspice simulation included.</p>
-          <div class="project-tags"><span>KiCad 9</span><span>LTspice</span><span>PCB Design</span><span>Power Electronics</span></div>
-          <div class="project-links">
-            <a href="https://github.com/imguxuuuu/Battery-Protection-PCB" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-            <span class="proj-date">Personal Project</span>
+      <div class="proj-header reveal">
+        <p class="section-label">Personal Work</p>
+        <h2 class="display-heading">PROJECTS</h2>
+      </div>
+
+      <div class="proj-editorial">
+
+        <div class="proj-item reveal" data-cursor="project">
+          <div class="proj-content">
+            <p class="proj-num">Project / 01</p>
+            <h3 class="proj-title">Li-Ion Battery Protection PCB</h3>
+            <p class="proj-desc">
+              Manufacturing-ready <strong>2-layer PCB</strong> (90 × 40 mm) for single-cell Li-Ion
+              protection — Schottky reverse-current protection, <strong>500 mA resettable polyfuse</strong>,
+              voltage divider for ADC monitoring, copper ground pour. DRC passed with zero errors.
+              Full Gerber, BOM and LTspice simulation included.
+            </p>
+            <div class="proj-tech">
+              <span>KiCad 9</span><span>LTspice</span><span>PCB Design</span><span>Power Electronics</span>
+            </div>
+            <a href="https://github.com/imguxuuuu/Battery-Protection-PCB" target="_blank" rel="noopener" class="proj-link">
+              <i class="fab fa-github"></i> GitHub ↗
+            </a>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-visual-icon" aria-hidden="true">PCB</div>
           </div>
         </div>
 
-        <div class="project-card tilt-card reveal">
-          <div class="project-icon"><i class="fas fa-battery-three-quarters"></i></div>
-          <h3>SOH Prediction for LiFePO₄ Batteries via ML</h3>
-          <p>Regression pipeline trained on battery cycling data across <strong>50+ charge/discharge cycles</strong> on Raspberry Pi 4, predicting State of Health (SOH) for EV battery management systems.</p>
-          <div class="project-tags"><span>Raspberry Pi 4</span><span>Python</span><span>ML Regression</span><span>BMS</span></div>
-          <div class="project-links">
-            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-            <span class="proj-date">June 2024</span>
+        <div class="proj-item reveal" data-cursor="project">
+          <div class="proj-content">
+            <p class="proj-num">Project / 02</p>
+            <h3 class="proj-title">SOH Prediction for LiFePO₄ Batteries via ML</h3>
+            <p class="proj-desc">
+              Regression pipeline trained on battery cycling data across <strong>50+ charge/discharge
+              cycles</strong> on Raspberry Pi 4, predicting State of Health (SOH) for EV battery
+              management systems.
+            </p>
+            <div class="proj-tech">
+              <span>Raspberry Pi 4</span><span>Python</span><span>ML Regression</span><span>BMS</span>
+            </div>
+            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener" class="proj-link">
+              <i class="fab fa-github"></i> GitHub ↗
+            </a>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-visual-icon" aria-hidden="true">SOH</div>
           </div>
         </div>
 
-        <div class="project-card tilt-card reveal">
-          <div class="project-icon"><i class="fas fa-microchip"></i></div>
-          <h3>32-bit RISC Processor Subsystem Study</h3>
-          <p>Designed <strong>3 core subsystems</strong> (ALU, data memory, register file) in Verilog HDL on Vivado, validated across multiple FPGA configurations for timing and resource-utilisation benchmarking.</p>
-          <div class="project-tags"><span>Verilog HDL</span><span>Vivado</span><span>FPGA</span><span>RISC Architecture</span></div>
-          <div class="project-links">
-            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-            <span class="proj-date">Jan. 2025</span>
+        <div class="proj-item reveal" data-cursor="project">
+          <div class="proj-content">
+            <p class="proj-num">Project / 03</p>
+            <h3 class="proj-title">32-bit RISC Processor Subsystem Study</h3>
+            <p class="proj-desc">
+              Designed <strong>3 core subsystems</strong> (ALU, data memory, register file) in Verilog
+              HDL on Vivado, validated across multiple FPGA configurations for timing and
+              resource-utilisation benchmarking.
+            </p>
+            <div class="proj-tech">
+              <span>Verilog HDL</span><span>Vivado</span><span>FPGA</span><span>RISC Architecture</span>
+            </div>
+            <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener" class="proj-link">
+              <i class="fab fa-github"></i> GitHub ↗
+            </a>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-visual-icon" aria-hidden="true">RISC</div>
           </div>
         </div>
 
@@ -696,59 +1019,68 @@
     </div>
   </section>
 
-  <!-- ── MY DIRECTION ── -->
-  <section id="direction" class="section reveal">
-    <div class="container">
-      <h2 class="section-title">My <span class="accent">Direction</span></h2>
-      <p class="section-sub">A long-term technical progression — not an aspiration, but a deliberate engineering path.</p>
-      <div class="roadmap">
+  <!-- ─────────────────────────────────────
+       DIRECTION
+  ───────────────────────────────────── -->
+  <section id="direction" class="sect-light" data-nav="light">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
 
-        <div class="roadmap-step completed">
-          <div class="roadmap-num">01</div>
-          <div class="roadmap-content">
-            <h3>Electrical &amp; Electronics Engineering</h3>
-            <p>B.Tech foundation — embedded systems, power electronics, control systems, electrical machines, hardware engineering and IEEE-published research.</p>
+      <div class="dir-header reveal">
+        <p class="section-label">Long-Term Path</p>
+        <h2 class="display-heading">DIRECTION</h2>
+        <p style="font-size:clamp(13px,1.5vw,15px);color:rgba(0,0,0,0.45);line-height:1.7;max-width:500px;margin-top:16px;">
+          A deliberate engineering progression — not an aspiration, but a planned trajectory.
+        </p>
+      </div>
+
+      <div class="dir-steps">
+
+        <div class="dir-step completed reveal">
+          <div class="dir-step-num">01</div>
+          <div>
+            <h3 class="dir-step-title">Electrical &amp; Electronics Engineering</h3>
+            <p class="dir-step-desc">B.Tech foundation — embedded systems, power electronics, control systems, electrical machines, hardware engineering and IEEE-published research.</p>
           </div>
         </div>
 
-        <div class="roadmap-step completed">
-          <div class="roadmap-num">02</div>
-          <div class="roadmap-content">
-            <h3>Semiconductor Devices &amp; Nanoelectronics</h3>
-            <p>Grenoble-INP Phelma — Advanced CMOS, Semiconductor Physics, Nanoelectronics, VLSI, Microsystems, MTJ simulation. The turning point that redirected the trajectory.</p>
+        <div class="dir-step completed reveal">
+          <div class="dir-step-num">02</div>
+          <div>
+            <h3 class="dir-step-title">Semiconductor Devices &amp; Nanoelectronics</h3>
+            <p class="dir-step-desc">Grenoble-INP Phelma — Advanced CMOS, Semiconductor Physics, Nanoelectronics, VLSI, Microsystems, MTJ simulation. The turning point that redirected the trajectory.</p>
           </div>
         </div>
 
-        <div class="roadmap-step active">
-          <div class="roadmap-num">03</div>
-          <div class="roadmap-content">
-            <h3>Device Fabrication &amp; Cleanroom Processing</h3>
-            <p>Targeting M.S. in Semiconductor Engineering / Microelectronics — hands-on fabrication, lithography, thin-film deposition, etching and device characterisation.</p>
-            <span class="roadmap-current-tag">Current target</span>
+        <div class="dir-step active reveal">
+          <div class="dir-step-num">03</div>
+          <div>
+            <h3 class="dir-step-title">Device Fabrication &amp; Cleanroom Processing</h3>
+            <p class="dir-step-desc">Targeting M.S. in Semiconductor Engineering / Microelectronics — hands-on fabrication, lithography, thin-film deposition, etching and device characterisation.</p>
+            <span class="dir-current-pill">Current target</span>
           </div>
         </div>
 
-        <div class="roadmap-step">
-          <div class="roadmap-num">04</div>
-          <div class="roadmap-content">
-            <h3>Process Engineering &amp; Semiconductor Manufacturing</h3>
-            <p>Process integration, yield engineering, reliability, SPC — contributing to technology development in a fabrication environment.</p>
+        <div class="dir-step reveal">
+          <div class="dir-step-num">04</div>
+          <div>
+            <h3 class="dir-step-title">Process Engineering &amp; Semiconductor Manufacturing</h3>
+            <p class="dir-step-desc">Process integration, yield engineering, reliability, SPC — contributing to technology development in a fabrication environment.</p>
           </div>
         </div>
 
-        <div class="roadmap-step">
-          <div class="roadmap-num">05</div>
-          <div class="roadmap-content">
-            <h3>Fabrication &amp; Manufacturing Leadership</h3>
-            <p>Technical leadership across process, integration and manufacturing — with deep expertise in at least one node or technology domain.</p>
+        <div class="dir-step reveal">
+          <div class="dir-step-num">05</div>
+          <div>
+            <h3 class="dir-step-title">Fabrication &amp; Manufacturing Leadership</h3>
+            <p class="dir-step-desc">Technical leadership across process, integration and manufacturing — with deep expertise in at least one node or technology domain.</p>
           </div>
         </div>
 
-        <div class="roadmap-step">
-          <div class="roadmap-num">06</div>
-          <div class="roadmap-content">
-            <h3>Semiconductor Manufacturing Venture</h3>
-            <p>Long-term objective: contribute to a vertically integrated semiconductor manufacturing capability in Europe, with potential expansion into India.</p>
+        <div class="dir-step reveal">
+          <div class="dir-step-num">06</div>
+          <div>
+            <h3 class="dir-step-title">Semiconductor Manufacturing Venture</h3>
+            <p class="dir-step-desc">Long-term objective: contribute to a vertically integrated semiconductor manufacturing capability in Europe, with potential expansion into India.</p>
           </div>
         </div>
 
@@ -756,74 +1088,74 @@
     </div>
   </section>
 
-  <!-- ── NEXT STEP ── -->
-  <section id="next-step" class="section reveal">
-    <div class="container">
-      <div class="next-step-card">
-        <div class="next-step-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div class="next-step-content">
+  <!-- ─────────────────────────────────────
+       NEXT STEP
+  ───────────────────────────────────── -->
+  <section id="next-step" class="sect-dark" data-nav="dark">
+    <div class="container" style="padding-top:clamp(80px,10vw,140px);padding-bottom:clamp(80px,10vw,140px);">
+      <div class="next-step-box reveal">
+        <div class="next-step-icon-col" aria-hidden="true">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
           <span class="next-step-label">Next Step</span>
-          <h3>Graduate Study in Semiconductor Engineering</h3>
-          <p>Preparing for <strong>Spring 2027 graduate study</strong> in Semiconductor Engineering, Microelectronics, Device Fabrication and Semiconductor Manufacturing.</p>
+          <h3 class="next-step-title">Graduate Study in Semiconductor Engineering</h3>
+          <p class="next-step-desc">
+            Preparing for <strong>Spring 2027 graduate study</strong> in Semiconductor Engineering,
+            Microelectronics, Device Fabrication and Semiconductor Manufacturing.
+          </p>
           <p class="next-step-target">
-            <i class="fas fa-map-marker-alt"></i>
-            <span><strong>Targeting:</strong> University at Buffalo — M.S. Engineering Science (Microelectronics &amp; Semiconductor Engineering) · Spring 2027</span>
+            <strong>Targeting:</strong> University at Buffalo — M.S. Engineering Science
+            (Microelectronics &amp; Semiconductor Engineering) · Spring 2027
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── CONTACT ── -->
-  <section id="contact" class="section reveal">
-    <div class="container contact-container">
-      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
-      <p class="contact-sub">
-        Interested in <strong>semiconductor devices, device fabrication, hardware engineering</strong> or
-        <strong>research collaboration</strong>? I am open to graduate research discussions, technical
-        conversations and engineering opportunities globally.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:s.gururaghuraman@gmail.com" class="contact-card">
-          <i class="fas fa-envelope"></i>
-          <span>Email</span>
-          <small>s.gururaghuraman@gmail.com</small>
+  <!-- ─────────────────────────────────────
+       CONTACT / FOOTER
+  ───────────────────────────────────── -->
+  <section id="contact" class="sect-dark" data-nav="dark">
+    <div class="container">
+      <div class="contact-cta reveal">
+        LET'S<br>BUILD<br>SOMETHING<br>INTERESTING.
+      </div>
+      <div class="contact-links-row reveal">
+        <a href="mailto:s.gururaghuraman@gmail.com" class="contact-link highlight">
+          <i class="fas fa-envelope"></i> s.gururaghuraman@gmail.com
         </a>
-        <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" rel="noopener" class="contact-card">
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn</span>
-          <small>Connect with me</small>
+        <a href="https://www.linkedin.com/in/gururaghuraman/" target="_blank" rel="noopener" class="contact-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
         </a>
-        <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener" class="contact-card">
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
-          <small>imguxuuuu</small>
+        <a href="https://github.com/imguxuuuu" target="_blank" rel="noopener" class="contact-link">
+          <i class="fab fa-github"></i> GitHub
         </a>
-        <a href="assets/resume.pdf" download class="contact-card highlight">
-          <i class="fas fa-file-pdf"></i>
-          <span>Download CV</span>
-          <small>PDF · 2026</small>
+        <a href="assets/resume.pdf" download class="contact-link">
+          <i class="fas fa-file-pdf"></i> Download CV
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
   <footer>
-    <img src="assets/favicon.png" alt="GS" class="footer-logo" />
-    <p>
-      Designed &amp; built by <span class="accent">Gururaghuraman Sethuraman</span> &bull;
-      Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
-    </p>
-    <nav class="legal-links" aria-label="Legal information">
-      <a href="privacy.html">Privacy</a>
-      <a href="cookies.html">Cookies</a>
-      <a href="terms.html">Terms</a>
-    </nav>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        Designed &amp; built by <span class="accent">Gururaghuraman Sethuraman</span> &bull;
+        Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
+      </p>
+      <nav class="legal-links" aria-label="Legal information">
+        <a href="privacy.html">Privacy</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
   </footer>
 
   <!-- Back to top -->
-  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <button id="back-to-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <!-- Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
