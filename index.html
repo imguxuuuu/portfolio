@@ -20,7 +20,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Bebas+Neue&family=Manrope:wght@300..800&display=swap" rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
@@ -84,7 +84,10 @@
       </svg>
     </div>
 
-    <!-- Nav hover: small arrow circle (~55px) -->
+    <!-- Outside hero: small dot with soft halo -->
+    <div class="cursor-layer cursor-dot"><span class="cursor-dot-core"></span></div>
+
+    <!-- Hover on any link/button: arrow circle, inverts what's beneath -->
     <div class="cursor-layer cursor-arrow">
       <span class="cursor-arrow-glyph">→</span>
     </div>
@@ -102,7 +105,7 @@
   <nav id="navbar" aria-label="Main navigation">
     <div class="nav-inner">
       <a class="nav-logo" href="#hero" aria-label="Home">
-        <img src="assets/favicon.png" alt="GS" class="nav-logo-img" />
+        <img src="assets/profile.jpg" alt="Gururaghuraman Sethuraman" class="nav-logo-img" />
       </a>
       <ul class="nav-links" id="primary-navigation">
         <li><a href="#about"        data-cursor="nav">About</a></li>

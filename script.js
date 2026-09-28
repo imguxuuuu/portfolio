@@ -35,6 +35,7 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
 
   const cursorEl = document.getElementById('cursor');
   if (!cursorEl) return;
+  const heroEl   = document.getElementById('hero');
 
   /* Position tracking with lerp */
   let targetX = window.innerWidth / 2;
@@ -53,6 +54,12 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
     curX += (targetX - curX) * LERP;
     curY += (targetY - curY) * LERP;
     cursorEl.style.transform = `translate3d(${curX}px,${curY}px,0)`;
+    /* Big wafer only while the pointer is over the hero (I'M GURU → GURU);
+       the dot takes over once the hero has scrolled out from under it */
+    const inHero = !!heroEl && targetY < heroEl.getBoundingClientRect().bottom;
+    if (inHero !== cursorEl.classList.contains('in-hero')) {
+      cursorEl.classList.toggle('in-hero', inHero);
+    }
     requestAnimationFrame(animateCursor);
   })();
 
@@ -66,13 +73,16 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
     if (state) cursorEl.classList.add(`state-${state}`);
   }
 
+  /* Any link/button gets the arrow; data-cursor overrides (e.g. "project") */
+  const HOVER_SEL = '[data-cursor], a, button, [role="button"], label, summary';
+
   document.addEventListener('mouseover', (e) => {
-    const el = e.target.closest('[data-cursor]');
-    if (el) setCursorState(el.dataset.cursor);
+    const el = e.target.closest(HOVER_SEL);
+    if (el) setCursorState(el.dataset.cursor || 'nav');
   }, { passive: true });
 
   document.addEventListener('mouseout', (e) => {
-    const el = e.target.closest('[data-cursor]');
+    const el = e.target.closest(HOVER_SEL);
     if (el && !el.contains(e.relatedTarget)) setCursorState(null);
   }, { passive: true });
 })();
@@ -110,12 +120,36 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
   /* Easing — smoothstep */
   function smoothstep(t) { return t * t * (3 - 2 * t); }
 
+  /* Cached layout metrics — recomputed only on resize/orientation change,
+     never mid-scroll. Reading these inside the scroll handler forces a
+     synchronous layout on every scroll event, which is what made the
+     transition feel janky on mobile (where the address bar collapsing
+     also fires resize-like height changes throughout the gesture). */
+  let animPx      = 300;
+  let prefixW0    = 0;   /* "I'M " width at the start weight */
+  let prefixW1    = 0;   /* "I'M " width at the end weight   */
+  const WEIGHT_START = 700;
+  const WEIGHT_END   = 300;
+  const mqNarrow = window.matchMedia('(max-width: 900px)');
+
+  /* The wordmark thins from 700 → 300 as you scroll (the reference's
+     variable-font move), which changes the prefix width — so measure it
+     at both ends once and interpolate, rather than reading layout mid-scroll. */
+  function refreshHeroMetrics() {
+    animPx = Math.min(Math.round(window.innerHeight * 0.3), 300);
+    if (!wmPrefix || !heroWordmark) return;
+    const prev = heroWordmark.style.fontWeight;
+    heroWordmark.style.fontWeight = WEIGHT_START;
+    prefixW0 = wmPrefix.offsetWidth;
+    heroWordmark.style.fontWeight = WEIGHT_END;
+    prefixW1 = wmPrefix.offsetWidth;
+    heroWordmark.style.fontWeight = prev;
+  }
+
   /* Track scroll progress — single master value drives entire composition */
   function updateHero() {
-    /* Full transition completes within first ~300px of scroll (responsive) */
-    const ANIM_PX = Math.min(Math.round(window.innerHeight * 0.3), 300);
-    const rawT    = Math.max(0, Math.min(1, window.scrollY / ANIM_PX));
-    const t       = smoothstep(rawT); /* eased 0 → 1 */
+    const rawT = Math.max(0, Math.min(1, window.scrollY / animPx));
+    const t    = smoothstep(rawT); /* eased 0 → 1 */
 
     /* ── Background: white → near-black ── */
     const bgVal = Math.round(lerp(255, 10, t));
@@ -126,13 +160,11 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
     const textVal = Math.round(lerp(0, 255, t));
     heroSticky.style.color = toRgb(textVal, textVal, textVal);
 
-    /* ── Wordmark: translate left + subtle scaleX narrowing ── */
+    /* ── Wordmark: slide "I'M" off left while the weight thins ── */
     if (heroWordmark && wmPrefix) {
-      const tx     = -(t * wmPrefix.offsetWidth);
-      const scaleX = lerp(1, 0.93, t);
-      heroWordmark.style.transformOrigin = 'left center';
-      heroWordmark.style.transform =
-        `translate3d(${tx.toFixed(1)}px,0,0) scaleX(${scaleX.toFixed(3)})`;
+      const tx = -(t * lerp(prefixW0, prefixW1, t));
+      heroWordmark.style.fontWeight = Math.round(lerp(WEIGHT_START, WEIGHT_END, t));
+      heroWordmark.style.transform  = `translate3d(${tx.toFixed(1)}px,0,0)`;
     }
 
     /* ── Portrait: emerge from the right, lag slightly behind background ── */
@@ -143,11 +175,17 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
         `translateX(${lerp(6, 0, pT).toFixed(2)}vw) scale(${lerp(1.05, 1, pT).toFixed(3)})`;
     }
 
-    /* ── Vignette: gradient colour tracks background ── */
+    /* ── Vignette: single wide ramp per edge, colour tracks live background ── */
     if (heroVignette) {
-      heroVignette.style.background = `
-        linear-gradient(to right, ${bg} 0%, transparent 45%),
-        linear-gradient(to top,   ${bg} 0%, transparent 55%)
+      /* Narrow screens: portrait is full-bleed behind the text, so no
+         left-edge ramp — just darken top and bottom for legibility. */
+      heroVignette.style.background = mqNarrow.matches ? `
+        linear-gradient(to top,    rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 45%, transparent 70%),
+        linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 35%)
+      ` : `
+        linear-gradient(to right,  ${bg} 0%, transparent 58%),
+        linear-gradient(to top,    #000000 0%, transparent 62%),
+        linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 20%)
       `;
     }
 
@@ -166,26 +204,54 @@ if (typeof Lenis !== 'undefined' && isPointerFine) {
   }
 
   /* Initial call */
+  refreshHeroMetrics();
   updateHero();
+  /* Re-measure once Antonio has loaded — fallback-font widths are wrong */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => { refreshHeroMetrics(); updateHero(); });
+  }
 
-  window.addEventListener('scroll', updateHero, { passive: true });
-  window.addEventListener('resize', updateHero, { passive: true });
+  /* Batch scroll work to once per animation frame — avoids doing this
+     layout/style work multiple times per frame on mobile, which is a
+     bigger source of scroll jank than the calculations themselves. */
+  let heroTicking = false;
+  window.addEventListener('scroll', () => {
+    if (heroTicking) return;
+    heroTicking = true;
+    requestAnimationFrame(() => { updateHero(); heroTicking = false; });
+  }, { passive: true });
+
+  window.addEventListener('resize', () => { refreshHeroMetrics(); updateHero(); }, { passive: true });
 })();
 
 /* ── MOBILE NAV ── */
 const navToggle    = document.getElementById('navToggle');
 const navLinksList = document.querySelector('.nav-links');
 
-function closeNavigation() {
-  navLinksList.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
-  navToggle.setAttribute('aria-label', 'Open navigation menu');
-}
+const navToggleIcon = navToggle.querySelector('i');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinksList.classList.toggle('open');
+/* Open/close in one place: overlay, page scroll lock, and bars ↔ ✕ icon */
+function setNavigation(isOpen) {
+  navLinksList.classList.toggle('open', isOpen);
+  document.documentElement.classList.toggle('menu-open', isOpen);
   navToggle.setAttribute('aria-expanded', String(isOpen));
   navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  if (navToggleIcon) {
+    navToggleIcon.classList.toggle('fa-bars',  !isOpen);
+    navToggleIcon.classList.toggle('fa-xmark',  isOpen);
+  }
+}
+
+function closeNavigation() { setNavigation(false); }
+
+navToggle.addEventListener('click', () => {
+  setNavigation(!navLinksList.classList.contains('open'));
+});
+
+/* Menu is mobile-only — don't leave the page scroll-locked if the
+   window is widened past the breakpoint while it's open */
+window.matchMedia('(max-width: 768px)').addEventListener('change', (e) => {
+  if (!e.matches) closeNavigation();
 });
 
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeNavigation));
@@ -372,6 +438,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     heroSticky.style.color      = '#ffffff';
   }
   if (heroWordmark && wmPrefix) {
+    heroWordmark.style.fontWeight = 300;
     heroWordmark.style.transform = `translateX(${-wmPrefix.offsetWidth}px)`;
   }
   const portrait = document.getElementById('heroPortrait');

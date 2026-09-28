@@ -4,15 +4,6 @@
    Reference: Canada Portfolio (az-canada.webflow.io)
    =================================================== */
 
-/* ── LOCAL WEBFONTS ── */
-@font-face {
-  font-family: 'HeroCondensed';
-  src: url('assets/fonts/BarlowCondensed-Black.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ── DESIGN TOKENS ── */
 :root {
   --black:      #000000;
@@ -21,9 +12,9 @@
   --off-white:  #F5F5F3;
   --gray-light: #D8D8D8;
   --gray-mid:   #8A8A8A;
-  --hero:       'HeroCondensed', 'Barlow Condensed', sans-serif;
+  --hero:       'Antonio', 'Bebas Neue', sans-serif;
   --display:    'Bebas Neue', sans-serif;
-  --body:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --body:       'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --ease:       cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out:   cubic-bezier(0.0, 0.0, 0.2, 1);
   --nav-h:      64px;
@@ -145,12 +136,47 @@ ul { list-style: none; }
   height: 100%;
 }
 
-/* Nav hover: small arrow circle (~55px) */
+/* Wafer is hero-only — elsewhere the dot takes over */
+#cursor:not(.in-hero) .cursor-default {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+
+/* Outside hero: small dot with a soft halo (~56px) */
+.cursor-dot {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+.cursor-dot-core {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(128,128,128);
+}
+#cursor:not(.in-hero):not(.state-nav):not(.state-project) .cursor-dot {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Dot + arrow invert whatever is beneath them ("negative" of the page).
+   Set on #cursor itself: it's the stacking context, so a blend on a
+   child would only blend against #cursor's own empty backdrop. */
+#cursor:not(.in-hero):not(.state-project),
+#cursor.state-nav {
+  mix-blend-mode: difference;
+}
+
+/* Hover on links/buttons: arrow circle (~55px) */
 .cursor-arrow {
   width: 55px;
   height: 55px;
-  background: rgba(8,8,8,0.92);
-  border: 1px solid rgba(255,255,255,0.4);
+  background: rgb(140,140,140);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,7 +214,8 @@ ul { list-style: none; }
 }
 
 /* State: nav hover */
-#cursor.state-nav .cursor-default {
+#cursor.state-nav .cursor-default,
+#cursor.state-nav .cursor-dot {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.4);
 }
@@ -226,7 +253,7 @@ ul { list-style: none; }
 #navbar.scrolled { background: rgba(0,0,0,0.85); backdrop-filter: blur(16px); }
 #navbar.nav-light.scrolled { background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); }
 
-#navbar.nav-light .nav-logo-img { filter: invert(1); }
+#navbar.nav-light .nav-logo-img { border-color: rgba(0,0,0,0.15); }
 #navbar.nav-light .nav-links a  { color: var(--black); }
 #navbar.nav-light .btn-resume   { color: var(--black); border-color: rgba(0,0,0,0.4); }
 #navbar.nav-light .btn-resume:hover { background: var(--black); color: var(--white); }
@@ -249,7 +276,9 @@ ul { list-style: none; }
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  transition: filter 0.3s;
+  object-position: center 18%;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: border-color 0.3s;
 }
 
 .nav-links {
@@ -380,6 +409,7 @@ section { position: relative; width: 100%; }
 /* Outer section provides scroll room */
 .hero-section {
   height: 210vh;
+  height: 210svh;
   position: relative;
 }
 
@@ -388,6 +418,7 @@ section { position: relative; width: 100%; }
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
   /* background, color driven by JS via inline style */
   background: #ffffff;
@@ -403,6 +434,8 @@ section { position: relative; width: 100%; }
   width: 52%;
   height: 100%;
   pointer-events: none;
+  overflow: hidden; /* img is scaled 1.04 — without clipping, its left edge
+                       pokes out past the vignette as a bright vertical strip */
   opacity: 0;       /* JS drives this */
   will-change: opacity, transform;
 }
@@ -411,7 +444,7 @@ section { position: relative; width: 100%; }
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(100%) contrast(1.18) brightness(0.88);
+  filter: grayscale(100%) contrast(1.2) brightness(0.9);
   transform: scale(1.04);
   transform-origin: top right;
   transition: transform 0.1s linear;
@@ -419,11 +452,14 @@ section { position: relative; width: 100%; }
 .hero-portrait-vignette {
   position: absolute;
   inset: 0;
-  /* left edge blends into background, bottom fades to black */
+  /* Single wide linear ramp per edge — a plateau-then-fade shape reads
+     as a visible seam; one straight ramp across a wide span melts the
+     photo into the background with no perceptible edge. */
   background:
-    linear-gradient(to right, #ffffff 0%, transparent 42%),
-    linear-gradient(to top, #000000 0%, transparent 55%);
-  /* JS will update the left-gradient color to match background */
+    linear-gradient(to right,  #ffffff 0%, transparent 58%),
+    linear-gradient(to top,    #000000 0%, transparent 62%),
+    linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 20%);
+  /* JS will update the left-gradient color to match the live background */
 }
 
 /* ── HERO INNER LAYOUT ── */
@@ -468,8 +504,8 @@ section { position: relative; width: 100%; }
 .wm-prefix,
 .wm-name {
   font-family: var(--hero);
-  font-weight: 900;
-  font-size: clamp(80px, 18vw, 260px);
+  font-weight: 700;             /* JS thins this toward 300 on scroll */
+  font-size: clamp(88px, min(24vw, 56vh), 520px);
   line-height: 0.88;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -1663,6 +1699,23 @@ footer {
   .research-aside-box { aspect-ratio: 16/7; }
 }
 
+/* Hero: phones, tablets and half-width laptop windows — portrait goes
+   full-bleed behind the text (matches reference mobile layout) */
+@media (max-width: 900px) {
+  .hero-section { height: 160vh; height: 160svh; }
+  .hero-inner   { justify-content: flex-start; }
+  .hero-wordmark-outer { flex: 0 0 auto; margin-top: 24px; }
+  .wm-prefix, .wm-name { font-size: clamp(72px, 27vw, 240px); }
+  .hero-meta    { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: auto; }
+  .hero-socials { flex-direction: row; }
+  .hero-socials a { writing-mode: horizontal-tb; transform: none; }
+  .hero-portrait-wrap { width: 100%; }
+  .hero-portrait-img  { object-position: center top; }
+  .hero-bottom-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero-tagline { opacity: 0.8; }
+  .hero-scroll-hint { display: none; }
+}
+
 @media (max-width: 768px) {
   /* Nav mobile */
   .nav-links {
@@ -1676,7 +1729,17 @@ footer {
     z-index: 8999;
     align-items: flex-start;
   }
-  .nav-links.open { display: flex; }
+  .nav-links.open { display: flex; height: 100vh; height: 100dvh; overflow-y: auto; }
+  /* Keep the toggle above the overlay so it can close it */
+  .nav-toggle { position: relative; z-index: 9001; }
+
+  /* Menu open: lock page scroll, and drop the navbar's blur — a
+     backdrop-filter makes the navbar the containing block for the
+     fixed overlay, shrinking it to the navbar's height */
+  html.menu-open,
+  html.menu-open body { overflow: hidden; }
+  html.menu-open #navbar { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: transparent !important; }
+  html.menu-open #navbar .nav-toggle { color: var(--white); }
   .nav-links a { font-size: 14px; opacity: 1; min-height: 44px; display: flex; align-items: center; }
   .nav-toggle { display: flex; }
   .btn-resume  { display: none; }
@@ -1685,17 +1748,9 @@ footer {
   #navbar.nav-light .nav-links a:hover,
   #navbar.nav-light .nav-links a.active{ color: var(--white); }
 
-  /* Hero mobile */
-  .hero-section { height: 160vh; }
-  .hero-meta    { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .hero-socials { flex-direction: row; }
-  .hero-socials a { writing-mode: horizontal-tb; transform: none; }
-  .hero-portrait-wrap { width: 100%; opacity: 0 !important; }
-  .hero-bottom-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-
   /* Grid stacks */
   .about-grid          { grid-template-columns: 1fr; }
-  .about-photo-wrap    { aspect-ratio: 16/9; }
+  .about-photo-wrap    { aspect-ratio: 4/5; max-width: 420px; margin: 0 auto; }
   .about-stats         { grid-template-columns: 1fr 1fr; }
   .sem-grid            { grid-template-columns: 1fr; background: none; gap: 2px; }
   .sem-column          { padding: 28px 20px; }
@@ -1718,7 +1773,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .wm-prefix, .wm-name { font-size: clamp(52px, 15vw, 88px); }
   .contact-cta  { font-size: clamp(52px, 17vw, 100px); }
   .about-stats { grid-template-columns: 1fr; }
   .stat { border-right: none; border-top: 1px solid var(--gray-light); }
