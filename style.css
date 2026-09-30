@@ -1471,6 +1471,182 @@ section { position: relative; width: 100%; }
 .proj-link:hover { opacity: 0.55; }
 
 /* ==========================================================
+   CERTIFICATIONS
+========================================================== */
+.cert-header { margin-bottom: clamp(56px, 7vw, 96px); }
+.cert-header .display-heading { font-size: clamp(44px, 8.5vw, 140px); white-space: nowrap; }
+
+.cert-list { border-top: 1px solid rgba(255,255,255,0.1); }
+
+.cert-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 48px;
+  padding: clamp(40px, 5vw, 64px) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cert-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 16px;
+}
+
+.cert-issuer {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.cert-sub-issuer {
+  font-size: 10px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 12px;
+}
+
+.cert-date {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+
+.cert-level-pill {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 14px;
+}
+
+.cert-title {
+  font-family: var(--display);
+  font-size: clamp(20px, 3.2vw, 42px);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.cert-duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.cert-desc {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.cert-credential-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.cert-credential-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.cert-credential-id {
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.06em;
+}
+
+.cert-verify-link {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  margin-bottom: 28px;
+}
+.cert-verify-link:hover { opacity: 0.55; }
+
+.cert-verify-qr {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 28px;
+}
+
+.cert-image-wrap {
+  max-width: 520px;
+  margin-top: 4px;
+}
+
+/* Placeholder: hidden by default; shown by JS only when image errors */
+.cert-img-ph {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1.414;
+  border: 1px dashed rgba(255,255,255,0.15);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.18);
+}
+.cert-img-ph i { font-size: 24px; }
+.cert-img-ph span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.8;
+}
+.cert-img-ph code {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Visible by default; JS hides it only if src errors */
+.cert-img {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ==========================================================
    DIRECTION
 ========================================================== */
 #direction {
@@ -1756,6 +1932,7 @@ footer {
   .sem-column          { padding: 28px 20px; }
   .edu-item            { grid-template-columns: 1fr; gap: 12px; }
   .pub-item            { grid-template-columns: 1fr; gap: 12px; }
+  .cert-item           { grid-template-columns: 1fr; gap: 12px; }
   .proj-item           { grid-template-columns: 1fr; }
   .proj-item:nth-child(even) .proj-content { order: 1; }
   .proj-item:nth-child(even) .proj-visual  { order: 2; }
